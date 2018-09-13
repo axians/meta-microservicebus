@@ -7,5 +7,7 @@ SERIAL_CONSOLE = ""
 
 IMAGE_ROOTFS_EXTRA_SPACE = "1024"
 
+
+IMAGE_INSTALL_append = " bash python"
 IMAGE_INSTALL_append = " nodejs nodejs-npm"
 IMAGE_INSTALL_append = " microservicebus-node"
