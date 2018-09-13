@@ -1351,10 +1351,11 @@ SRC_URI = "npm://registry.npmjs.org;name=microservicebus-node;version=${PV}"
 NPM_SHRINKWRAP := "${THISDIR}/${PN}/npm-shrinkwrap.json"
 NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown.json"
 
-RDEPENDS_microservicebus-node-uuid = " bash"
-RDEPENDS_microservicebus-node-npm = " bash"
-RDEPENDS_microservicebus-node-npm-node-gyp = " bash python"
+#RDEPENDS_microservicebus-node-uuid = " bash"
+#RDEPENDS_microservicebus-node-npm = " bash"
+#RDEPENDS_microservicebus-node-npm-node-gyp = " bash python"
 
+DEPENDS += " bash python"
 
 inherit npm
 
