@@ -5,6 +5,8 @@ EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-openssh"
 
 SERIAL_CONSOLE = ""
 
+RPI_USE_U_BOOT = "1"
+
 IMAGE_ROOTFS_EXTRA_SPACE = "1024"
 
 
