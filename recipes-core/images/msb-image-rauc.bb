@@ -5,7 +5,7 @@ EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-openssh"
 
 
 #IMAGE_FSTYPES = "tar.bz2 ext3"
-IMAGE_FSTYPES ?= "tar.bz2 ext3 rpi-sdimg"
+#IMAGE_FSTYPES = "tar.bz2 ext3 "
 
 SERIAL_CONSOLE = ""
 
