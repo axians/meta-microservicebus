@@ -267,9 +267,9 @@ SUMMARY = "node.js node for microservicebus. Please visit https://microservicebu
 # licenses then you should change the value to separate the licenses with |
 # instead of &. If there is any doubt, check the accompanying documentation
 # to determine which situation is applicable.
-LICENSE = "Unknown & Unlicense & ISC & CC-BY-3.0 & (WTFPL | MIT) & \
-CC0-1.0 & Artistic-2.0 & BSD-2-Clause & BSD-3-Clause & Apache-2.0 & \
-(BSD-2-Clause | MIT) & MIT"
+LICENSE = "(WTFPL | MIT) & BSD-3-Clause & Unlicense & Unknown & ISC & \
+Apache-2.0 & CC-BY-3.0 & Artistic-2.0 & MIT & BSD-2-Clause & CC0-1.0 & \
+(BSD-2-Clause | MIT)"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
                     file://node_modules/network/node_modules/needle/license.txt;md5=331eb5d406e4439ff2e996b744f54d90 \
                     file://node_modules/network/node_modules/needle/node_modules/iconv-lite/LICENSE;md5=f942263d98f0d75e0e0101884e86261d \
