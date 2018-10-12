@@ -10,13 +10,13 @@ for BOOT_SLOT in "${BOOT_ORDER}"; do
     if test ${BOOT_A_LEFT} -gt 0; then
       setexpr BOOT_A_LEFT ${BOOT_A_LEFT} - 1
       echo "Found valid slot A, ${BOOT_A_LEFT} attempts remaining"
-      setenv bootargs "${default_bootargs} root=/dev/mmcblk0p2 rauc.slot=A"
+      setenv bootargs earlyprintk root=/dev/mmcblk0p2 rootfstype=ext4 rootwait
     fi
   elif test "x${BOOT_SLOT}" = "xB"; then
     if test ${BOOT_B_LEFT} -gt 0; then
       setexpr BOOT_B_LEFT ${BOOT_B_LEFT} - 1
       echo "Found valid slot B, ${BOOT_B_LEFT} attempts remaining"
-      setenv bootargs "${default_bootargs} root=/dev/mmcblk0p3 rauc.slot=B"
+      setenv bootargs earlyprintk root=/dev/mmcblk0p3 rootfstype=ext4 rootwait
     fi
   fi
 done
@@ -31,6 +31,6 @@ else
   reset
 fi
 
-fdt addr ${fdt_addr} && fdt get value bootargs /chosen bootargs
+fdt addr ${fdt_addr}
 fatload mmc 0:1 ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
 @@KERNEL_BOOTCMD@@ ${kernel_addr_r} - ${fdt_addr}
