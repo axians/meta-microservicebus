@@ -23,6 +23,7 @@ inherit image_types
 # 0                      4MiB     4MiB + 40MiB       4MiB + 40Mib + SDIMG_ROOTFS
 
 # This image depends on the rootfs image
+SDIMG_ROOTFS_TYPE ?= "ext3"
 IMAGE_TYPEDEP_rpi-sdimg = "${SDIMG_ROOTFS_TYPE}"
 
 # Set kernel and boot loader
@@ -46,7 +47,6 @@ BOOT_SPACE ?= "40960"
 IMAGE_ROOTFS_ALIGNMENT = "4096"
 
 # Use an uncompressed ext3 by default as rootfs
-SDIMG_ROOTFS_TYPE ?= "ext3"
 SDIMG_ROOTFS = "${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.${SDIMG_ROOTFS_TYPE}"
 
 do_image_rpi_sdimg[depends] = " \

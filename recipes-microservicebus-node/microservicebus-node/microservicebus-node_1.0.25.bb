@@ -2649,4 +2649,6 @@ LICENSE_${PN}-tar = "ISC"
 LICENSE_${PN}-uuid = "MIT"
 LICENSE_${PN} = "MIT"
 
+RDEPENDS_${PN} += " python"
 
+DEPENDS += " bash nodejs"

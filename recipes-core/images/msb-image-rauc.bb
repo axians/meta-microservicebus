@@ -3,10 +3,6 @@ require recipes-core/images/core-image-base.bb
 
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-openssh"
 
-
-#IMAGE_FSTYPES = "tar.bz2 ext3"
-IMAGE_FSTYPES ?= "tar.bz2 ext3 rpi-sdimg"
-
 SERIAL_CONSOLE = ""
 
 RPI_USE_U_BOOT = "1"
