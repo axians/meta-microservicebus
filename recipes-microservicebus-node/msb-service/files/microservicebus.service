@@ -1,0 +1,16 @@
+[Unit]
+Description=MicroServiceBus as a Service
+
+[Service]
+ExecStart=/usr/bin/node /usr/lib/node_modules/microservicebus-node/start.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=nodejs
+#User=<alternate user>
+#Group=<alternate group>
+Environment=PATH=/usr/bin:/usr/lbin
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
