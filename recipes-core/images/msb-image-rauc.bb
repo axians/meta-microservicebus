@@ -17,3 +17,5 @@ IMAGE_INSTALL_append = " msb-service"
 IMAGE_INSTALL_append = " rauc"
 
 IMAGE_INSTALL_append = " u-boot-fw-utils"
+
+IMAGE_INSTALL_append = " dev-pkgs"
