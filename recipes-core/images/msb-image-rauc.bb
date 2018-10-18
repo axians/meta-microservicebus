@@ -13,6 +13,17 @@ IMAGE_ROOTFS_EXTRA_SPACE = "1048576"
 IMAGE_INSTALL_append = " bash python"
 IMAGE_INSTALL_append = " nodejs nodejs-npm"
 IMAGE_INSTALL_append = " microservicebus-node"
+IMAGE_INSTALL_append = " msb-service"
 IMAGE_INSTALL_append = " rauc"
 
 IMAGE_INSTALL_append = " u-boot-fw-utils"
+
+IMAGE_INSTALL_append  =  "\
+    cpp \
+    cpp-symlinks \
+    gcc \
+    gcc-symlinks \
+    g++ \
+    g++-symlinks \
+    make \
+    "
