@@ -18,4 +18,12 @@ IMAGE_INSTALL_append = " rauc"
 
 IMAGE_INSTALL_append = " u-boot-fw-utils"
 
-IMAGE_INSTALL_append = " dev-pkgs"
+IMAGE_INSTALL_append  =  "\
+    cpp \
+    cpp-symlinks \
+    gcc \
+    gcc-symlinks \
+    g++ \
+    g++-symlinks \
+    make \
+    "
