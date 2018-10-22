@@ -2,14 +2,14 @@
 Description=MicroServiceBus as a Service
 
 [Service]
-ExecStart=/usr/bin/node /usr/lib/node_modules/microservicebus-node/start.js
+ExecStart=/usr/bin/node /usr/lib/node_modules/microservicebus-node/start.js -w --beta
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=nodejs
 #User=<alternate user>
 #Group=<alternate group>
-Environment=PATH=/usr/bin:/usr/lbin
+Environment=PATH=/usr/bin
 Environment=NODE_ENV=production
 
 [Install]
