@@ -15,6 +15,7 @@ IMAGE_INSTALL_append = " nodejs nodejs-npm"
 IMAGE_INSTALL_append = " microservicebus-node"
 IMAGE_INSTALL_append = " msb-service"
 IMAGE_INSTALL_append = " rauc"
+IMAGE_INSTALL_append = " dbus-nodejs"
 
 IMAGE_INSTALL_append = " u-boot-fw-utils"
 
