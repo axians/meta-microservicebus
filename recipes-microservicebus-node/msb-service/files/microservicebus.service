@@ -2,7 +2,7 @@
 Description=MicroServiceBus as a Service
 
 [Service]
-ExecStart=/usr/bin/node /usr/lib/node_modules/microservicebus-node/start.js -w --beta
+ExecStart=/usr/bin/node /usr/lib/node_modules/microservicebus-node/start.js -w -env dev.microservicebus.com --beta 
 WorkingDirectory=/usr/lib/node_modules/microservicebus-node
 Restart=always
 StandardOutput=syslog
