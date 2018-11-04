@@ -1,4 +1,4 @@
-This README file contains information on the contents of the meta-microservicebus-node layer.
+This README file contains information on the contents of the meta-microservicebus layer.
 
 Please see the corresponding sections below for details.
 
@@ -18,24 +18,23 @@ Dependencies
 Patches
 =======
 
-Please submit any patches against the meta-microservicebus-node layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+Please submit any patches against the meta-microservicebus layer
 
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+Maintainer: <jonas.andersson@vinci-energies.net>
 
 Table of Contents
 =================
 
-  I. Adding the meta-microservicebus-node layer to your build
+  I. Adding the meta-microservicebus layer to your build
  II. Misc
 
 
-I. Adding the meta-microservicebus-node layer to your build
+I. Adding the meta-microservicebus layer to your build
 =================================================
 
-Run 'bitbake-layers add-layer meta-microservicebus-node'
+Run 'bitbake-layers add-layer meta-microservicebus'
 
 II. Misc
 ========
 
---- replace with specific information about the meta-microservicebus-node layer ---
+--- replace with specific information about the meta-microservicebus layer ---
