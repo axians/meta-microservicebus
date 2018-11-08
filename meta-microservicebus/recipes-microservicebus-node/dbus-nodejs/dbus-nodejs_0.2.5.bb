@@ -18,3 +18,5 @@ inherit npm
 
 # Must be set after inherit npm since that itself sets S
 S = "${WORKDIR}/npmpkg"
+
+INSANE_SKIP_dbus-nodejs-put = "arch"
