@@ -17,6 +17,8 @@ inherit npm
 # Must be set after inherit npm since that itself sets S
 S = "${WORKDIR}/npmpkg"
 
-RDEPENDS_${PN} += " python"
+INSANE_SKIP_microservicebus-node-npm-node-gyp = "file-rdeps"
+INSANE_SKIP_microservicebus-node-uuid = "file-rdeps"
+INSANE_SKIP_microservicebus-node-npm = "file-rdeps"
 
 DEPENDS += " bash nodejs"
