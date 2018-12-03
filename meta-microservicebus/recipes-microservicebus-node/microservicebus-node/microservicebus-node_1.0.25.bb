@@ -22,3 +22,4 @@ INSANE_SKIP_microservicebus-node-uuid = "file-rdeps"
 INSANE_SKIP_microservicebus-node-npm = "file-rdeps"
 
 DEPENDS += " bash nodejs"
+RDEPENDS_${PN} += " python nodejs nodejs-npm"
