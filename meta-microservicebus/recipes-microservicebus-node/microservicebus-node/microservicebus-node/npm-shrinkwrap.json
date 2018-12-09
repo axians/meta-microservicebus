@@ -80,6 +80,7 @@
           },
           "dependencies": {
             "async": {
+              "version": "2.6.0",
               "requires": {
                 "lodash": "4.17.11"
               },
