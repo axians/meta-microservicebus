@@ -1,6 +1,4 @@
-# Recipe created by recipetool
-# This is the basis of a recipe and may need further editing in order to be fully functional.
-# (Feel free to remove these comments when editing.)
+# Recipe for microservicebus-node
 
 SUMMARY = "node.js node for microservicebus. Please visit https://microservicebus.com for more information."
 
@@ -17,9 +15,8 @@ inherit npm
 # Must be set after inherit npm since that itself sets S
 S = "${WORKDIR}/npmpkg"
 
-INSANE_SKIP_microservicebus-node-npm-node-gyp = "file-rdeps"
+
 INSANE_SKIP_microservicebus-node-uuid = "file-rdeps"
-INSANE_SKIP_microservicebus-node-npm = "file-rdeps"
 
 DEPENDS += " bash nodejs"
 RDEPENDS_${PN} += " python nodejs nodejs-npm"
