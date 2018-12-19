@@ -71,7 +71,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
                     file://node_modules/network/node_modules/commander/LICENSE;md5=25851d4d10d6611a12d5571dab945a00 \
                     file://node_modules/network/node_modules/commander/node_modules/graceful-readlink/LICENSE;md5=b0270ddb7ee6643eee76e80113234806 \
                     file://node_modules/network/node_modules/wmic/node_modules/iconv-lite/LICENSE;md5=f942263d98f0d75e0e0101884e86261d \
-                    file://node_modules/network/node_modules/wmic/node_modules/async/LICENSE;md5=73f63c1fa4541b2f2f34d77140ebe89d \
+                    file://node_modules/network/node_modules/wmic/node_modules/async/LICENSE;md5=9ec5487258cc65072647c5488b4d59ad \
                     file://node_modules/network/node_modules/wmic/node_modules/async/node_modules/lodash/LICENSE;md5=8f10c81975f996c3ba5b424884b4af96 \
                     file://node_modules/network/node_modules/async/LICENSE;md5=dc113e0fc4029c29942399ad22425402 \
                     file://node_modules/require-reload/LICENSE;md5=9862e3aecc2338bb6a1af4d73cc7a1e7 \
