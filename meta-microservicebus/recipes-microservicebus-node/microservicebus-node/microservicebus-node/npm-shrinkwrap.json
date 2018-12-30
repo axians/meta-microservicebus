@@ -1,6 +1,6 @@
 {
   "name": "microservicebus-node",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -193,7 +193,15 @@
               }
             },
             "pinkie-promise": {
-              "version": "2.0.1"
+              "version": "2.0.1",
+              "requires": {
+                "pinkie": "2.0.4"
+              },
+              "dependencies": {
+                "pinkie": {
+                  "version": "2.0.4"
+                }
+              }
             },
             "read-all-stream": {
               "version": "3.1.0",
@@ -203,15 +211,7 @@
               },
               "dependencies": {
                 "pinkie-promise": {
-                  "version": "2.0.1",
-                  "requires": {
-                    "pinkie": "2.0.4"
-                  },
-                  "dependencies": {
-                    "pinkie": {
-                      "version": "2.0.4"
-                    }
-                  }
+                  "version": "2.0.1"
                 },
                 "readable-stream": {
                   "version": "2.3.6"
@@ -283,7 +283,24 @@
         "rc": {
           "version": "1.2.8",
           "requires": {
-            "minimist": "1.2.0"
+            "deep-extend": "0.6.0",
+            "ini": "1.3.5",
+            "minimist": "1.2.0",
+            "strip-json-comments": "2.0.1"
+          },
+          "dependencies": {
+            "deep-extend": {
+              "version": "0.6.0"
+            },
+            "ini": {
+              "version": "1.3.5"
+            },
+            "minimist": {
+              "version": "1.2.0"
+            },
+            "strip-json-comments": {
+              "version": "2.0.1"
+            }
           }
         },
         "registry-url": {
@@ -295,24 +312,7 @@
             "rc": {
               "version": "1.2.8",
               "requires": {
-                "deep-extend": "0.6.0",
-                "ini": "1.3.5",
-                "minimist": "1.2.0",
-                "strip-json-comments": "2.0.1"
-              },
-              "dependencies": {
-                "deep-extend": {
-                  "version": "0.6.0"
-                },
-                "ini": {
-                  "version": "1.3.5"
-                },
-                "minimist": {
-                  "version": "1.2.0"
-                },
-                "strip-json-comments": {
-                  "version": "2.0.1"
-                }
+                "minimist": "1.2.0"
               }
             }
           }
@@ -356,15 +356,7 @@
           "version": "0.12.0"
         },
         "combined-stream": {
-          "version": "1.0.7",
-          "requires": {
-            "delayed-stream": "1.0.0"
-          },
-          "dependencies": {
-            "delayed-stream": {
-              "version": "1.0.0"
-            }
-          }
+          "version": "1.0.7"
         },
         "extend": {
           "version": "3.0.2"
@@ -384,7 +376,15 @@
               "version": "0.4.0"
             },
             "combined-stream": {
-              "version": "1.0.7"
+              "version": "1.0.7",
+              "requires": {
+                "delayed-stream": "1.0.0"
+              },
+              "dependencies": {
+                "delayed-stream": {
+                  "version": "1.0.0"
+                }
+              }
             },
             "mime-types": {
               "version": "2.1.21",
@@ -711,6 +711,14 @@
               "requires": {
                 "safe-buffer": "5.1.2",
                 "yallist": "3.0.3"
+              },
+              "dependencies": {
+                "safe-buffer": {
+                  "version": "5.1.2"
+                },
+                "yallist": {
+                  "version": "3.0.3"
+                }
               }
             }
           }
@@ -720,14 +728,6 @@
           "requires": {
             "safe-buffer": "5.1.2",
             "yallist": "3.0.3"
-          },
-          "dependencies": {
-            "safe-buffer": {
-              "version": "5.1.2"
-            },
-            "yallist": {
-              "version": "3.0.3"
-            }
           }
         },
         "minizlib": {
@@ -765,7 +765,7 @@
       }
     },
     "uuid": {
-      "version": "2.0.3"
+      "version": "3.3.2"
     }
   }
 }
