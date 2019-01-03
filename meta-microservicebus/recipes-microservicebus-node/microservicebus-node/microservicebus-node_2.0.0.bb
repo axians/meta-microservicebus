@@ -9,6 +9,7 @@ SUMMARY = "node.js node for microservicebus. Please visit https://microservicebu
 # The following license files were not able to be identified and are
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
+#   getlicenses.js
 #   node_modules/network/node_modules/wmic/node_modules/async/node_modules/lodash/LICENSE
 #   node_modules/tar/node_modules/minizlib/LICENSE
 #   node_modules/colors/LICENSE
@@ -25,15 +26,6 @@ SUMMARY = "node.js node for microservicebus. Please visit https://microservicebu
 #   node_modules/request/LICENSE
 #   node_modules/request/node_modules/forever-agent/LICENSE
 #   node_modules/request/node_modules/isstream/LICENSE.md
-#   node_modules/request/node_modules/hawk/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/cryptiles/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/cryptiles/node_modules/boom/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/cryptiles/node_modules/boom/node_modules/hoek/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/sntp/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/sntp/node_modules/hoek/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/boom/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/boom/node_modules/hoek/LICENSE
-#   node_modules/request/node_modules/hawk/node_modules/hoek/LICENSE
 #   node_modules/request/node_modules/qs/LICENSE
 #   node_modules/request/node_modules/caseless/LICENSE
 #   node_modules/request/node_modules/tough-cookie/LICENSE
@@ -60,23 +52,26 @@ SUMMARY = "node.js node for microservicebus. Please visit https://microservicebu
 # licenses then you should change the value to separate the licenses with |
 # instead of &. If there is any doubt, check the accompanying documentation
 # to determine which situation is applicable.
-LICENSE = "BSD-2-Clause & Apache-2.0 & MIT & Unlicense & ISC & Unknown \
-& BSD-3-Clause"
+LICENSE = "Unknown & BSD-3-Clause & Unlicense & Apache-2.0 & \
+BSD-2-Clause & ISC & MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
+                    file://getlicenses.js;md5=8f6c14f3ec26a0536cf2ba8ec2160abe \
                     file://node_modules/network/node_modules/needle/license.txt;md5=331eb5d406e4439ff2e996b744f54d90 \
                     file://node_modules/network/node_modules/needle/node_modules/iconv-lite/LICENSE;md5=f942263d98f0d75e0e0101884e86261d \
-                    file://node_modules/network/node_modules/needle/node_modules/iconv-lite/node_modules/safer-buffer/LICENSE;md5=3baebc2a17b8f5bff04882cd0dc0f76e \
                     file://node_modules/network/node_modules/needle/node_modules/debug/LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99 \
                     file://node_modules/network/node_modules/needle/node_modules/debug/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/network/node_modules/commander/LICENSE;md5=25851d4d10d6611a12d5571dab945a00 \
                     file://node_modules/network/node_modules/commander/node_modules/graceful-readlink/LICENSE;md5=b0270ddb7ee6643eee76e80113234806 \
                     file://node_modules/network/node_modules/wmic/node_modules/iconv-lite/LICENSE;md5=f942263d98f0d75e0e0101884e86261d \
+                    file://node_modules/network/node_modules/wmic/node_modules/iconv-lite/node_modules/safer-buffer/LICENSE;md5=3baebc2a17b8f5bff04882cd0dc0f76e \
                     file://node_modules/network/node_modules/wmic/node_modules/async/LICENSE;md5=9ec5487258cc65072647c5488b4d59ad \
                     file://node_modules/network/node_modules/wmic/node_modules/async/node_modules/lodash/LICENSE;md5=8f10c81975f996c3ba5b424884b4af96 \
                     file://node_modules/network/node_modules/async/LICENSE;md5=dc113e0fc4029c29942399ad22425402 \
                     file://node_modules/require-reload/LICENSE;md5=9862e3aecc2338bb6a1af4d73cc7a1e7 \
                     file://node_modules/tar/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/tar/node_modules/minipass/LICENSE;md5=ff53df3ad94e5c618e230ab49ce310fa \
+                    file://node_modules/tar/node_modules/minipass/node_modules/yallist/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
+                    file://node_modules/tar/node_modules/minipass/node_modules/safe-buffer/LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761 \
                     file://node_modules/tar/node_modules/yallist/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/tar/node_modules/chownr/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/tar/node_modules/safe-buffer/LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761 \
@@ -84,8 +79,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
                     file://node_modules/tar/node_modules/minizlib/node_modules/minipass/LICENSE;md5=ff53df3ad94e5c618e230ab49ce310fa \
                     file://node_modules/tar/node_modules/fs-minipass/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/tar/node_modules/fs-minipass/node_modules/minipass/LICENSE;md5=ff53df3ad94e5c618e230ab49ce310fa \
-                    file://node_modules/tar/node_modules/fs-minipass/node_modules/minipass/node_modules/yallist/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
-                    file://node_modules/tar/node_modules/fs-minipass/node_modules/minipass/node_modules/safe-buffer/LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761 \
                     file://node_modules/tar/node_modules/mkdirp/LICENSE;md5=b2d989bc186e7f6b418a5fdd5cc0b56b \
                     file://node_modules/tar/node_modules/mkdirp/node_modules/minimist/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
                     file://node_modules/colors/LICENSE;md5=5bc6c72caa0dcc082d24a52a6ae12112 \
@@ -93,10 +86,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
                     file://node_modules/package-json/node_modules/rc/LICENSE.MIT;md5=e0f70a42adf526e6f5e605a94d98a420 \
                     file://node_modules/package-json/node_modules/rc/LICENSE.APACHE2;md5=ffcf739dca268cb0f20336d6c1a038f1 \
                     file://node_modules/package-json/node_modules/rc/LICENSE.BSD;md5=e7a2a325a0069e82aff675bbf74464a0 \
-                    file://node_modules/package-json/node_modules/rc/node_modules/deep-extend/LICENSE;md5=827bb5781213ff1e9d2fe309bbfc0115 \
-                    file://node_modules/package-json/node_modules/rc/node_modules/minimist/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
-                    file://node_modules/package-json/node_modules/rc/node_modules/ini/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
-                    file://node_modules/package-json/node_modules/rc/node_modules/strip-json-comments/license;md5=a12ebca0510a773644101a99a867d210 \
                     file://node_modules/package-json/node_modules/got/license;md5=a12ebca0510a773644101a99a867d210 \
                     file://node_modules/package-json/node_modules/got/node_modules/object-assign/license;md5=a12ebca0510a773644101a99a867d210 \
                     file://node_modules/package-json/node_modules/got/node_modules/pinkie-promise/license;md5=be72c3ad86c1c4e9578a1945b082b17d \
@@ -132,23 +121,19 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
                     file://node_modules/package-json/node_modules/registry-url/node_modules/rc/LICENSE.MIT;md5=e0f70a42adf526e6f5e605a94d98a420 \
                     file://node_modules/package-json/node_modules/registry-url/node_modules/rc/LICENSE.APACHE2;md5=ffcf739dca268cb0f20336d6c1a038f1 \
                     file://node_modules/package-json/node_modules/registry-url/node_modules/rc/LICENSE.BSD;md5=e7a2a325a0069e82aff675bbf74464a0 \
+                    file://node_modules/package-json/node_modules/registry-url/node_modules/rc/node_modules/deep-extend/LICENSE;md5=827bb5781213ff1e9d2fe309bbfc0115 \
+                    file://node_modules/package-json/node_modules/registry-url/node_modules/rc/node_modules/minimist/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
+                    file://node_modules/package-json/node_modules/registry-url/node_modules/rc/node_modules/ini/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
+                    file://node_modules/package-json/node_modules/registry-url/node_modules/rc/node_modules/strip-json-comments/license;md5=a12ebca0510a773644101a99a867d210 \
                     file://node_modules/request/LICENSE;md5=f3f8ead5440d1c311b45be065d135d90 \
                     file://node_modules/request/node_modules/forever-agent/LICENSE;md5=f3f8ead5440d1c311b45be065d135d90 \
                     file://node_modules/request/node_modules/isstream/LICENSE.md;md5=1798150b9d70250c42b55b3530e6af2b \
                     file://node_modules/request/node_modules/extend/LICENSE;md5=33d9f7a91df276ec16aa941032ee1476 \
                     file://node_modules/request/node_modules/combined-stream/License;md5=5270b4ddb6700d0a820e6d066744589c \
-                    file://node_modules/request/node_modules/hawk/LICENSE;md5=aa3dcddf0039666585d9b80574526e38 \
-                    file://node_modules/request/node_modules/hawk/node_modules/cryptiles/LICENSE;md5=f208ef5bd21ac252b5c396e6867b1a28 \
-                    file://node_modules/request/node_modules/hawk/node_modules/cryptiles/node_modules/boom/LICENSE;md5=ccfa8265c53cf13b063280d0917eb517 \
-                    file://node_modules/request/node_modules/hawk/node_modules/cryptiles/node_modules/boom/node_modules/hoek/LICENSE;md5=a670c1b0730654cd87189993221cdf0d \
-                    file://node_modules/request/node_modules/hawk/node_modules/sntp/LICENSE;md5=4ce2a96fc8315e28c47cc7b470e4ccdb \
-                    file://node_modules/request/node_modules/hawk/node_modules/sntp/node_modules/hoek/LICENSE;md5=a670c1b0730654cd87189993221cdf0d \
-                    file://node_modules/request/node_modules/hawk/node_modules/boom/LICENSE;md5=ccfa8265c53cf13b063280d0917eb517 \
-                    file://node_modules/request/node_modules/hawk/node_modules/boom/node_modules/hoek/LICENSE;md5=a670c1b0730654cd87189993221cdf0d \
-                    file://node_modules/request/node_modules/hawk/node_modules/hoek/LICENSE;md5=a670c1b0730654cd87189993221cdf0d \
                     file://node_modules/request/node_modules/qs/LICENSE;md5=d5c7c6dc45a33a0a9620ed81315672d7 \
                     file://node_modules/request/node_modules/caseless/LICENSE;md5=e9dadf023ba6ebd98e3e0acb6e2470e3 \
-                    file://node_modules/request/node_modules/tough-cookie/LICENSE;md5=ceb9c658d7a5d62bee6628c46832168e \
+                    file://node_modules/request/node_modules/tough-cookie/LICENSE;md5=7189377a5215f1211b70cf2b9754841e \
+                    file://node_modules/request/node_modules/tough-cookie/node_modules/psl/LICENSE;md5=2425d288296fae32e27553694ff40294 \
                     file://node_modules/request/node_modules/tough-cookie/node_modules/punycode/LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987 \
                     file://node_modules/request/node_modules/form-data/License;md5=7aa505292e2636a9e59d4d3f258f4819 \
                     file://node_modules/request/node_modules/form-data/node_modules/combined-stream/License;md5=5270b4ddb6700d0a820e6d066744589c \
@@ -179,16 +164,15 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
                     file://node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/verror/node_modules/core-util-is/LICENSE;md5=6126e36127d20ec0e2f637204a5c68ff \
                     file://node_modules/request/node_modules/safe-buffer/LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761 \
                     file://node_modules/request/node_modules/is-typedarray/LICENSE.md;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
-                    file://node_modules/request/node_modules/stringstream/LICENSE.txt;md5=3b3d0996fc07ae2d89c4659b9ffcbe2e \
                     file://node_modules/request/node_modules/json-stringify-safe/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/request/node_modules/tunnel-agent/LICENSE;md5=f3f8ead5440d1c311b45be065d135d90 \
                     file://node_modules/request/node_modules/tunnel-agent/node_modules/safe-buffer/LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761 \
-                    file://node_modules/request/node_modules/har-validator/LICENSE;md5=bfa81591facc9224e4c7451c8dc12958 \
-                    file://node_modules/request/node_modules/har-validator/node_modules/ajv/LICENSE;md5=715855234c57d97032971adfc0608a07 \
+                    file://node_modules/request/node_modules/har-validator/LICENSE;md5=6f7daec5e5143ffeb21745646b425ab2 \
+                    file://node_modules/request/node_modules/har-validator/node_modules/ajv/LICENSE;md5=4973982316cdc12e988b814af2813df7 \
                     file://node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/fast-deep-equal/LICENSE;md5=ea87ade09b9e6da4f2e47904a4ee137b \
                     file://node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/fast-json-stable-stringify/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
                     file://node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/json-schema-traverse/LICENSE;md5=ea87ade09b9e6da4f2e47904a4ee137b \
-                    file://node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/co/LICENSE;md5=1cb994f27906c83d46a3cc6d9e1d8d6c \
+                    file://node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/uri-js/node_modules/punycode/LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987 \
                     file://node_modules/request/node_modules/har-validator/node_modules/har-schema/LICENSE;md5=bfa81591facc9224e4c7451c8dc12958 \
                     file://node_modules/request/node_modules/uuid/LICENSE.md;md5=c9420736e23afb538ba5fbe44197f0b4 \
                     file://node_modules/request/node_modules/aws4/LICENSE;md5=ff6f181928a91d8631d565516b4db3cb \
@@ -220,11 +204,11 @@ LICENSE_${PN}-network-commander-graceful-readlink = "MIT"
 LICENSE_${PN}-network-commander = "MIT"
 LICENSE_${PN}-network-needle-debug-ms = "MIT"
 LICENSE_${PN}-network-needle-debug = "MIT"
-LICENSE_${PN}-network-needle-iconv-lite-safer-buffer = "MIT"
 LICENSE_${PN}-network-needle-iconv-lite = "MIT"
 LICENSE_${PN}-network-needle = "MIT"
 LICENSE_${PN}-network-wmic-async-lodash = "MIT"
 LICENSE_${PN}-network-wmic-async = "MIT"
+LICENSE_${PN}-network-wmic-iconv-lite-safer-buffer = "MIT"
 LICENSE_${PN}-network-wmic-iconv-lite = "MIT"
 LICENSE_${PN}-network-wmic = "ISC"
 LICENSE_${PN}-network = "MIT"
@@ -260,11 +244,11 @@ LICENSE_${PN}-package-json-got-unzip-response = "MIT"
 LICENSE_${PN}-package-json-got-url-parse-lax-prepend-http = "MIT"
 LICENSE_${PN}-package-json-got-url-parse-lax = "MIT"
 LICENSE_${PN}-package-json-got = "MIT"
-LICENSE_${PN}-package-json-rc-deep-extend = "MIT"
-LICENSE_${PN}-package-json-rc-ini = "ISC"
-LICENSE_${PN}-package-json-rc-minimist = "MIT"
-LICENSE_${PN}-package-json-rc-strip-json-comments = "MIT"
 LICENSE_${PN}-package-json-rc = "Unknown MIT"
+LICENSE_${PN}-package-json-registry-url-rc-deep-extend = "MIT"
+LICENSE_${PN}-package-json-registry-url-rc-ini = "ISC"
+LICENSE_${PN}-package-json-registry-url-rc-minimist = "MIT"
+LICENSE_${PN}-package-json-registry-url-rc-strip-json-comments = "MIT"
 LICENSE_${PN}-package-json-registry-url-rc = "Unknown MIT"
 LICENSE_${PN}-package-json-registry-url = "MIT"
 LICENSE_${PN}-package-json = "MIT"
@@ -280,22 +264,14 @@ LICENSE_${PN}-request-form-data-combined-stream = "MIT"
 LICENSE_${PN}-request-form-data-mime-types-mime-db = "MIT"
 LICENSE_${PN}-request-form-data-mime-types = "MIT"
 LICENSE_${PN}-request-form-data = "MIT"
-LICENSE_${PN}-request-har-validator-ajv-co = "MIT"
 LICENSE_${PN}-request-har-validator-ajv-fast-deep-equal = "MIT"
 LICENSE_${PN}-request-har-validator-ajv-fast-json-stable-stringify = "MIT"
 LICENSE_${PN}-request-har-validator-ajv-json-schema-traverse = "MIT"
+LICENSE_${PN}-request-har-validator-ajv-uri-js-punycode = "MIT"
+LICENSE_${PN}-request-har-validator-ajv-uri-js = "BSD-2-Clause"
 LICENSE_${PN}-request-har-validator-ajv = "MIT"
 LICENSE_${PN}-request-har-validator-har-schema = "ISC"
-LICENSE_${PN}-request-har-validator = "ISC"
-LICENSE_${PN}-request-hawk-boom-hoek = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk-boom = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk-cryptiles-boom-hoek = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk-cryptiles-boom = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk-cryptiles = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk-hoek = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk-sntp-hoek = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk-sntp = "BSD-3-Clause"
-LICENSE_${PN}-request-hawk = "BSD-3-Clause"
+LICENSE_${PN}-request-har-validator = "MIT"
 LICENSE_${PN}-request-http-signature-assert-plus = "MIT"
 LICENSE_${PN}-request-http-signature-jsprim-assert-plus = "MIT"
 LICENSE_${PN}-request-http-signature-jsprim-extsprintf = "MIT"
@@ -330,7 +306,7 @@ LICENSE_${PN}-request-oauth-sign = "Apache-2.0"
 LICENSE_${PN}-request-performance-now = "MIT"
 LICENSE_${PN}-request-qs = "BSD-3-Clause"
 LICENSE_${PN}-request-safe-buffer = "MIT"
-LICENSE_${PN}-request-stringstream = "MIT"
+LICENSE_${PN}-request-tough-cookie-psl = "MIT"
 LICENSE_${PN}-request-tough-cookie-punycode = "MIT"
 LICENSE_${PN}-request-tough-cookie = "BSD-3-Clause"
 LICENSE_${PN}-request-tunnel-agent-safe-buffer = "MIT"
@@ -341,10 +317,10 @@ LICENSE_${PN}-require-reload-tests-lib-require-reload-test = "Unknown"
 LICENSE_${PN}-require-reload-tests-require-reload-test = "Unknown"
 LICENSE_${PN}-require-reload = "MIT"
 LICENSE_${PN}-tar-chownr = "ISC"
-LICENSE_${PN}-tar-fs-minipass-minipass-safe-buffer = "MIT"
-LICENSE_${PN}-tar-fs-minipass-minipass-yallist = "ISC"
 LICENSE_${PN}-tar-fs-minipass-minipass = "ISC"
 LICENSE_${PN}-tar-fs-minipass = "ISC"
+LICENSE_${PN}-tar-minipass-safe-buffer = "MIT"
+LICENSE_${PN}-tar-minipass-yallist = "ISC"
 LICENSE_${PN}-tar-minipass = "ISC"
 LICENSE_${PN}-tar-minizlib-minipass = "ISC"
 LICENSE_${PN}-tar-minizlib = "MIT"
