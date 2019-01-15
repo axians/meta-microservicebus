@@ -1,24 +1,6 @@
-# Recipe created by recipetool
-# This is the basis of a recipe and may need further editing in order to be fully functional.
-# (Feel free to remove these comments when editing.)
-
 SUMMARY = "Node.js package to access serial ports. Linux, OSX and Windows. Welcome your robotic JavaScript overlords. Better yet, program them!"
 # WARNING: the following LICENSE and LIC_FILES_CHKSUM values are best guesses - it is
 # your responsibility to verify that the values are complete and correct.
-#
-# The following license files were not able to be identified and are
-# represented as "Unknown" below, you will need to check them yourself:
-#   node_modules/prebuild-install/node_modules/rc/LICENSE.APACHE2
-#   node_modules/prebuild-install/node_modules/rc/LICENSE.BSD
-#   node_modules/prebuild-install/node_modules/tar-fs/node_modules/tar-stream/node_modules/bl/LICENSE.md
-#   node_modules/prebuild-install/node_modules/tar-fs/node_modules/tar-stream/node_modules/bl/node_modules/readable-stream/LICENSE
-#   node_modules/prebuild-install/node_modules/tar-fs/node_modules/tar-stream/node_modules/readable-stream/LICENSE
-#   node_modules/prebuild-install/node_modules/detect-libc/LICENSE
-#   node_modules/prebuild-install/node_modules/tunnel-agent/LICENSE
-#   node_modules/prebuild-install/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/LICENSE
-#   node_modules/prebuild-install/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/string_decoder/LICENSE
-#   node_modules/prebuild-install/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/process-nextick-args/license.md
-#   node_modules/nan/LICENSE.md
 #
 # NOTE: multiple licenses have been detected; they have been separated with &
 # in the LICENSE value for now since it is a reasonable assumption that all
@@ -26,7 +8,7 @@ SUMMARY = "Node.js package to access serial ports. Linux, OSX and Windows. Welco
 # licenses then you should change the value to separate the licenses with |
 # instead of &. If there is any doubt, check the accompanying documentation
 # to determine which situation is applicable.
-LICENSE = "Unknown & MIT & Apache-2.0 & WTFPL & ISC"
+LICENSE = "BSD-2-Clause & MIT & Apache-2.0 & WTFPL & ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e2bc0aa64d278eb2b6ddeb692e294945 \
                     file://node_modules/prebuild-install/LICENSE;md5=a75272c6b584d0f8e2c1676b4e72469e \
                     file://node_modules/prebuild-install/node_modules/rc/LICENSE.MIT;md5=e0f70a42adf526e6f5e605a94d98a420 \
@@ -353,7 +335,7 @@ LICENSE_${PN}-prebuild-install-rc-deep-extend = "MIT"
 LICENSE_${PN}-prebuild-install-rc-ini = "ISC"
 LICENSE_${PN}-prebuild-install-rc-minimist = "MIT"
 LICENSE_${PN}-prebuild-install-rc-strip-json-comments = "MIT"
-LICENSE_${PN}-prebuild-install-rc = "Unknown MIT"
+LICENSE_${PN}-prebuild-install-rc = "BSD-2-Clause Apache-2.0 MIT"
 LICENSE_${PN}-prebuild-install-simple-get-decompress-response-mimic-response = "MIT"
 LICENSE_${PN}-prebuild-install-simple-get-decompress-response = "MIT"
 LICENSE_${PN}-prebuild-install-simple-get-once = "ISC"
