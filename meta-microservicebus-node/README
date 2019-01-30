@@ -38,8 +38,10 @@ manually to bblayers.conf or use add-layer.
 In following example the layers and build directory is located in pokys top directory 
 and the current directory are the sourced build directory.
 
-Run 'bitbake-layers add-layer ../meta-microservicebus/meta-microservicebus-node' 
-to add layer to bblayers.conf
+Run the following to add layers to bblayers.conf:
+
+  bitbake-layers add-layer ../meta-openembedded/meta-oe
+  bitbake-layers add-layer ../meta-microservicebus/meta-microservicebus-node
 
 II. Add microservicebus-node to your target
 ===========================================
