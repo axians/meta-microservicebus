@@ -8,8 +8,8 @@ RDEPENDS_${PN} = "\
     nodejs-npm \
     \
     microservicebus-node \
-    msb-service \
-    serialport \
+    microservicebus-node-service \
+    nodejs-serialport \
     \
     cpp \
     cpp-symlinks \
