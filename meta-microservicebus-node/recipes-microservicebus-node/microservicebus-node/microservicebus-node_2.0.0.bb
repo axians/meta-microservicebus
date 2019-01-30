@@ -1,4 +1,11 @@
-SUMMARY = "node.js node for microservicebus. Please visit https://microservicebus.com for more information."
+SUMMARY = "microServiceBus-node is the node.js based device agent used together with microServiceBus.com."
+
+DESCRIPTION =  "microServiceBus.com is an integration platform for IoT and enterprise applications. \
+                This platform lets you expose microservices from small devices and large systems using a remote hosting infrastructure. \
+                These nodes can run on both Linux and Windows using components built either natively (ARM) or using node.js."
+
+HOMEPAGE = "https://microservicebus.com"
+
 # WARNING: the following LICENSE and LIC_FILES_CHKSUM values are best guesses - it is
 # your responsibility to verify that the values are complete and correct.
 #

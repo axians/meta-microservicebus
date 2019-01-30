@@ -279,6 +279,8 @@ SRC_URI = "npm://registry.npmjs.org;name=serialport;version=${PV}"
 NPM_SHRINKWRAP := "${THISDIR}/${PN}/npm-shrinkwrap.json"
 NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown.json"
 
+NPMPN = "serialport"
+
 inherit npm
 
 # Must be set after inherit npm since that itself sets S
