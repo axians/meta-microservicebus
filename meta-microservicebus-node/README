@@ -55,8 +55,10 @@ III. Add systemd service configuration for microservicebus-node
 ===============================================================
 
 In order to run microservicebus-node agent as an service an systemd recipe is
-included as an reference, systemd configurations may need alteration for your target.
-The systemd service file is located under recipes-microservicebus-node/microservicebus-node-service/files
+included as an reference, the systemd configuration may need alteration for your target.
+The systemd service file is located under recipes-microservicebus-node/microservicebus-node-service/files.
+To add systemd service to your target add the "microservicebus-node-service"
+package to your local.conf or image recipe file:
 
   IMAGE_INSTALL_append = " microservicebus-node-service"
 
@@ -67,6 +69,8 @@ On some constrained device where the support for building npm packages on the ta
 the alternetive is to let bitbake build it, serialport is often used by microservicebus-node
 services and is therfore supplied in the layer for conviniens. It will be installed as an
 global npm package in /usr/lib/node_modules/.
+To add serialport to your target add the "nodejs-serialport" package to your local.conf 
+or image recipe file:
 
   IMAGE_INSTALL_append = " nodejs-serialport"
 
