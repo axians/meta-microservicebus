@@ -1,50 +1,13 @@
-# Recipe created by recipetool
-# This is the basis of a recipe and may need further editing in order to be fully functional.
-# (Feel free to remove these comments when editing.)
+SUMMARY = "microServiceBus-node is the node.js based device agent used together with microServiceBus.com."
 
-SUMMARY = "node.js node for microservicebus. Please visit https://microservicebus.com for more information."
+DESCRIPTION =  "microServiceBus.com is an integration platform for IoT and enterprise applications. \
+                This platform lets you expose microservices from small devices and large systems using a remote hosting infrastructure. \
+                These nodes can run on both Linux and Windows using components built either natively (ARM) or using node.js."
+
+HOMEPAGE = "https://microservicebus.com"
+
 # WARNING: the following LICENSE and LIC_FILES_CHKSUM values are best guesses - it is
 # your responsibility to verify that the values are complete and correct.
-#
-# The following license files were not able to be identified and are
-# represented as "Unknown" below, you will need to check them yourself:
-#   LICENSE
-#   getlicenses.js
-#   node_modules/network/node_modules/wmic/node_modules/async/node_modules/lodash/LICENSE
-#   node_modules/tar/node_modules/minizlib/LICENSE
-#   node_modules/colors/LICENSE
-#   node_modules/package-json/node_modules/rc/LICENSE.APACHE2
-#   node_modules/package-json/node_modules/rc/LICENSE.BSD
-#   node_modules/package-json/node_modules/got/node_modules/duplexer2/LICENSE.md
-#   node_modules/package-json/node_modules/got/node_modules/duplexer2/node_modules/readable-stream/LICENSE
-#   node_modules/package-json/node_modules/got/node_modules/readable-stream/LICENSE
-#   node_modules/package-json/node_modules/got/node_modules/readable-stream/node_modules/string_decoder/LICENSE
-#   node_modules/package-json/node_modules/got/node_modules/readable-stream/node_modules/process-nextick-args/license.md
-#   node_modules/package-json/node_modules/got/node_modules/read-all-stream/node_modules/readable-stream/LICENSE
-#   node_modules/package-json/node_modules/registry-url/node_modules/rc/LICENSE.APACHE2
-#   node_modules/package-json/node_modules/registry-url/node_modules/rc/LICENSE.BSD
-#   node_modules/request/LICENSE
-#   node_modules/request/node_modules/forever-agent/LICENSE
-#   node_modules/request/node_modules/isstream/LICENSE.md
-#   node_modules/request/node_modules/qs/LICENSE
-#   node_modules/request/node_modules/caseless/LICENSE
-#   node_modules/request/node_modules/tough-cookie/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/asn1/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/jsbn/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/ecc-jsbn/lib/LICENSE-jsbn
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/ecc-jsbn/node_modules/jsbn/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/dashdash/LICENSE.txt
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/tweetnacl/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/bcrypt-pbkdf/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/bcrypt-pbkdf/node_modules/tweetnacl/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/jsprim/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/extsprintf/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/verror/LICENSE
-#   node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/verror/node_modules/extsprintf/LICENSE
-#   node_modules/request/node_modules/tunnel-agent/LICENSE
-#   node_modules/request/node_modules/aws-sign2/LICENSE
-#   node_modules/request/node_modules/oauth-sign/LICENSE
-#   node_modules/async/node_modules/lodash/LICENSE
 #
 # NOTE: multiple licenses have been detected; they have been separated with &
 # in the LICENSE value for now since it is a reasonable assumption that all
@@ -52,7 +15,7 @@ SUMMARY = "node.js node for microservicebus. Please visit https://microservicebu
 # licenses then you should change the value to separate the licenses with |
 # instead of &. If there is any doubt, check the accompanying documentation
 # to determine which situation is applicable.
-LICENSE = "Unknown & BSD-3-Clause & Unlicense & Apache-2.0 & \
+LICENSE = "BSD-3-Clause & Unlicense & Apache-2.0 & \
 BSD-2-Clause & ISC & MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=75dbbb2f49d90bfc476532dc5861fd26 \
                     file://getlicenses.js;md5=8f6c14f3ec26a0536cf2ba8ec2160abe \
@@ -244,12 +207,12 @@ LICENSE_${PN}-package-json-got-unzip-response = "MIT"
 LICENSE_${PN}-package-json-got-url-parse-lax-prepend-http = "MIT"
 LICENSE_${PN}-package-json-got-url-parse-lax = "MIT"
 LICENSE_${PN}-package-json-got = "MIT"
-LICENSE_${PN}-package-json-rc = "Unknown MIT"
+LICENSE_${PN}-package-json-rc = "BSD-2-Clause MIT Apache-2.0"
 LICENSE_${PN}-package-json-registry-url-rc-deep-extend = "MIT"
 LICENSE_${PN}-package-json-registry-url-rc-ini = "ISC"
 LICENSE_${PN}-package-json-registry-url-rc-minimist = "MIT"
 LICENSE_${PN}-package-json-registry-url-rc-strip-json-comments = "MIT"
-LICENSE_${PN}-package-json-registry-url-rc = "Unknown MIT"
+LICENSE_${PN}-package-json-registry-url-rc = "BSD-2-Clause MIT Apache-2.0"
 LICENSE_${PN}-package-json-registry-url = "MIT"
 LICENSE_${PN}-package-json = "MIT"
 LICENSE_${PN}-request-aws-sign2 = "Apache-2.0"
@@ -275,7 +238,7 @@ LICENSE_${PN}-request-har-validator = "MIT"
 LICENSE_${PN}-request-http-signature-assert-plus = "MIT"
 LICENSE_${PN}-request-http-signature-jsprim-assert-plus = "MIT"
 LICENSE_${PN}-request-http-signature-jsprim-extsprintf = "MIT"
-LICENSE_${PN}-request-http-signature-jsprim-json-schema = "Unknown"
+LICENSE_${PN}-request-http-signature-jsprim-json-schema = "BSD-3-Clause"
 LICENSE_${PN}-request-http-signature-jsprim-verror-assert-plus = "MIT"
 LICENSE_${PN}-request-http-signature-jsprim-verror-core-util-is = "MIT"
 LICENSE_${PN}-request-http-signature-jsprim-verror-extsprintf = "MIT"
@@ -290,7 +253,7 @@ LICENSE_${PN}-request-http-signature-sshpk-dashdash-assert-plus = "MIT"
 LICENSE_${PN}-request-http-signature-sshpk-dashdash = "MIT"
 LICENSE_${PN}-request-http-signature-sshpk-ecc-jsbn-jsbn = "MIT"
 LICENSE_${PN}-request-http-signature-sshpk-ecc-jsbn-safer-buffer = "MIT"
-LICENSE_${PN}-request-http-signature-sshpk-ecc-jsbn = "Unknown MIT"
+LICENSE_${PN}-request-http-signature-sshpk-ecc-jsbn = "MIT"
 LICENSE_${PN}-request-http-signature-sshpk-getpass-assert-plus = "MIT"
 LICENSE_${PN}-request-http-signature-sshpk-getpass = "MIT"
 LICENSE_${PN}-request-http-signature-sshpk-jsbn = "MIT"
@@ -313,8 +276,6 @@ LICENSE_${PN}-request-tunnel-agent-safe-buffer = "MIT"
 LICENSE_${PN}-request-tunnel-agent = "Apache-2.0"
 LICENSE_${PN}-request-uuid = "MIT"
 LICENSE_${PN}-request = "Apache-2.0"
-LICENSE_${PN}-require-reload-tests-lib-require-reload-test = "Unknown"
-LICENSE_${PN}-require-reload-tests-require-reload-test = "Unknown"
 LICENSE_${PN}-require-reload = "MIT"
 LICENSE_${PN}-tar-chownr = "ISC"
 LICENSE_${PN}-tar-fs-minipass-minipass = "ISC"
