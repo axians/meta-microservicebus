@@ -20,7 +20,7 @@ FILES_${PN} += "${systemd_system_unitdir}/microservicebus-node.service"
 do_install() {
 
              install -d ${D}${systemd_system_unitdir}
-             install -m 0644 ${WORKDIR}/microservicebus.service ${D}${systemd_system_unitdir}
+             install -m 0644 ${WORKDIR}/microservicebus-node.service ${D}${systemd_system_unitdir}
 }
 
 REQUIRED_DISTRO_FEATURES= "systemd"
