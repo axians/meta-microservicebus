@@ -1,0 +1,86 @@
+This README file contains information on the contents of the meta-microservicebus-node layer.
+
+For information regarding the microservicebus-node agent visit https://microservicebus.com
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+  URI: git://git.openembedded.org/meta-openembedded
+  layers: meta-oe
+  branch: master
+
+Patches
+=======
+
+Please submit any patches via GitHub pull request on https://github.com/axians/meta-microservicebus
+
+Maintainer: Jonas Andersson jonaskgandersson@gmail.com 
+
+Table of Contents
+=================
+
+  I. Adding the meta-microservicebus-node layer to your build
+ II. Add microservicebus-node to your target
+III. Add systemd service configuration for microservicebus-node
+ IV. Add nodejs serialport support
+  V. Using package group to add support for building npm packages using gyp on target
+
+
+I. Adding the meta-microservicebus-node layer to your build
+===========================================================
+
+In order to use this layer, you need to clone the repository of meta-openembedded, 
+meta-microservicebus and then make the build system aware of it. Add the layers
+manually to bblayers.conf or use add-layer.
+
+In following example the layers and build directory is located in pokys top directory 
+and the current directory are the sourced build directory.
+
+Run the following to add layers to bblayers.conf:
+
+  bitbake-layers add-layer ../meta-openembedded/meta-oe
+  bitbake-layers add-layer ../meta-microservicebus/meta-microservicebus-node
+
+II. Add microservicebus-node to your target
+===========================================
+
+To only add microservicebus-node agent to your target add the "microservicebus-node"
+package to your local.conf or image recipe file:
+
+  IMAGE_INSTALL_append = " microservicebus-node"
+
+This will install microservicebus-node in /usr/lib/node_modules/ on your target.
+
+III. Add systemd service configuration for microservicebus-node
+===============================================================
+
+In order to run microservicebus-node agent as an service an systemd recipe is
+included as an reference, the systemd configuration may need alteration for your target.
+The systemd service file is located under recipes-microservicebus-node/microservicebus-node-service/files.
+To add systemd service to your target add the "microservicebus-node-service"
+package to your local.conf or image recipe file:
+
+  IMAGE_INSTALL_append = " microservicebus-node-service"
+
+IV. Add nodejs serialport support
+=================================
+
+On some constrained device where the support for building npm packages on the target is not supported
+the alternetive is to let bitbake build it, serialport is often used by microservicebus-node
+services and is therfore supplied in the layer for conviniens. It will be installed as an
+global npm package in /usr/lib/node_modules/.
+To add serialport to your target add the "nodejs-serialport" package to your local.conf 
+or image recipe file:
+
+  IMAGE_INSTALL_append = " nodejs-serialport"
+
+V. Using package group to add support for building npm packages using gyp on target
+===================================================================================
+
+An package group is supplied to add all packaged for microservicebus-node + packages related
+to build npm packages using gyp on target, this includes make, gcc, binutils. To install the
+package group add the following to your local.conf or image recipe file:
+
+  IMAGE_INSTALL_append = " packagegroup-microservicebus"
