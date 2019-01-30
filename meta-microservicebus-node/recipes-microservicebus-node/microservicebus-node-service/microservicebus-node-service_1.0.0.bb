@@ -5,15 +5,15 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 #here we specify the source we want to build
-SRC_URI += "file://microservicebus.service"
+SRC_URI += "file://microservicebus-node.service"
 #here we specify the source directory, where we can do all the building and expect sources to be placed
 S = "${WORKDIR}"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE_${PN} = " microservicebus.service"
+SYSTEMD_SERVICE_${PN} = " microservicebus-node.service"
 
-FILES_${PN} += "${systemd_system_unitdir}/microservicebus.service"
+FILES_${PN} += "${systemd_system_unitdir}/microservicebus-node.service"
 
 #bitbake task
 #created a directory /home/root for target install the script
