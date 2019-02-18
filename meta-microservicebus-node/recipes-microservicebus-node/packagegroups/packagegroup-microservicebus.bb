@@ -1,4 +1,4 @@
-SUMMARY = "Support for microServiceBus and use of gyp for npm"
+SUMMARY = "Support for microServiceBus"
 LICENSE = "MIT"
 
 inherit packagegroup
@@ -9,17 +9,7 @@ RDEPENDS_${PN} = "\
     \
     microservicebus-node \
     microservicebus-node-service \
+    nodejs-dbus \
     nodejs-serialport \
-    \
-    cpp \
-    cpp-symlinks \
-    gcc \
-    gcc-symlinks \
-    g++ \
-    g++-symlinks \
-    make \
-    \
-    binutils \
-    binutils-symlinks \
     \
 "
