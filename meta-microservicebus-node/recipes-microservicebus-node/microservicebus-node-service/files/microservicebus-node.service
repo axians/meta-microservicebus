@@ -10,9 +10,10 @@ StandardError=syslog
 SyslogIdentifier=nodejs
 User=root
 Group=root
-Environment=PATH=/usr/bin:/usr/local/bin:/bin/:/usr/local/sbin:/user/sbin:/sbin
+Environment=PATH=/usr/bin:/usr/local/bin:/bin/:/usr/local/sbin:/usr/sbin:/sbin
 Environment=NODE_ENV=production
 Environment=MSB_PLATFORM=YOCTO
+Environment=DAM_SOCKETPATH=/var/run/dam
 
 [Install]
 WantedBy=multi-user.target
