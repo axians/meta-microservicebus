@@ -12,6 +12,8 @@ IMAGE_ROOTFS_EXTRA_SPACE = "1048576"
 
 IMAGE_INSTALL_append = " microservicebus-node"
 IMAGE_INSTALL_append = " microservicebus-node-service"
+IMAGE_INSTALL_append = " microservicebus-dam"
+IMAGE_INSTALL_append = " microservicebus-dam-service"
 IMAGE_INSTALL_append = " rauc"
 IMAGE_INSTALL_append = " nodejs-serialport"
 
