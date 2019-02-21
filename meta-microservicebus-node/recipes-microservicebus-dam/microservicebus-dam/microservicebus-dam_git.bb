@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://node_modules/follow-redirects/LICENSE;md5=2913574e921
                     file://node_modules/follow-redirects/node_modules/debug/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6"
 
 SRC_URI = "git://github.com/axians/microservicebus-dam.git;user=git;protocol=ssh;branch=dev \
-           npm://registry.npmjs.org;name=follow-redirects;version=1.7.0;subdir=node_modules/follow-redirects \
+           npm://registry.npmjs.org;name=follow-redirects;version=1.6.0;subdir=node_modules/follow-redirects \
            "
 
 # Modify these as desired
