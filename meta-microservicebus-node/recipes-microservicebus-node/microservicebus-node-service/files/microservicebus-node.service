@@ -2,17 +2,18 @@
 Description=MicroServiceBus as a Service
 
 [Service]
-ExecStart=/usr/bin/node /usr/lib/node/microservicebus-node/start.js -w
-WorkingDirectory=/usr/lib/node/microservicebus-node
+ExecStart=/usr/bin/node /usr/lib/node/microservicebus-node/start.js @MSB_NODE_ARG@
+WorkingDirectory=@MSB_NODE_WORK_DIR@
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=nodejs
-User=root
-Group=root
-Environment=PATH=/usr/bin:/usr/local/bin:/bin/:/usr/local/sbin:/user/sbin:/sbin
+User=@MSB_NODE_USER@
+Group=@MSB_NODE_GROUP@
+Environment=PATH=/usr/bin:/usr/local/bin:/bin/:/usr/local/sbin:/usr/sbin:/sbin
 Environment=NODE_ENV=production
 Environment=MSB_PLATFORM=YOCTO
+Environment=MSB_HOST=@MSB_NODE_HOST@
 
 [Install]
 WantedBy=multi-user.target
