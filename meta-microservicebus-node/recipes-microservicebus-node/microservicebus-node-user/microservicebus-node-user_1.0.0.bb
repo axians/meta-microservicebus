@@ -9,7 +9,7 @@ MSB_NODE_USER ?= "msb"
 # Specify home directory for msb user, default empty meaning it will be set to default for useradd
 MSB_HOME_DIR_PATH ?= ""
 # Specify users groups
-MSB_USER_GROUPS ?= "root,adm,plugdev,sudo,tty,staff,disk,dialout,users"
+MSB_USER_GROUPS ?= "tty,dialout"
 
 S = "${WORKDIR}"
 
