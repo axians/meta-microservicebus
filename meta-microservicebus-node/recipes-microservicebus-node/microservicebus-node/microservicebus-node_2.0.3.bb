@@ -126,6 +126,11 @@ NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown.json"
 
 inherit npm
 
+do_install_append(){
+    # Change owner of msb-node to set user, needed for msb-core install
+	chown -R ${MSB_NODE_USER} ${D}${libdir}/node/microservicebus-node/
+}
+
 # Must be set after inherit npm since that itself sets S
 S = "${WORKDIR}/npmpkg"
 LICENSE_${PN}-app-module-path = "BSD-2-Clause"
@@ -265,4 +270,7 @@ LICENSE_${PN}-tar = "ISC"
 LICENSE_${PN}-uuid = "MIT"
 LICENSE_${PN} = "MIT"
 
-RDEPENDS_${PN} += " python nodejs-npm"
+RDEPENDS_${PN} += " python nodejs-npm "
+DEPENDS += " microservicebus-node-user"
+
+RDEPENDS_${PN}-dashdash += " bash"

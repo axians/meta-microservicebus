@@ -7,6 +7,7 @@ RDEPENDS_${PN} = "\
     nodejs \
     nodejs-npm \
     \
+    microservicebus-node-user \
     microservicebus-node \
     microservicebus-node-service \
     nodejs-dbus \
