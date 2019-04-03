@@ -21,6 +21,7 @@ MSB_NODE_WORK_DIR ?= "/usr/lib/node/microservicebus-node"
 MSB_NODE_USER ?= "root"
 MSB_NODE_GROUP ?= "root"
 MSB_NODE_HOST ?= "microservicebus.com"
+MSB_DAM_SOCKETPATH ?= "/var/run/dam"
 
 #bitbake task
 #created a directory /home/root for target install the script
@@ -32,6 +33,7 @@ do_install() {
     sed -i -e 's:@MSB_NODE_USER@:${MSB_NODE_USER}:g' ${WORKDIR}/microservicebus-node.service
     sed -i -e 's:@MSB_NODE_GROUP@:${MSB_NODE_GROUP}:g' ${WORKDIR}/microservicebus-node.service
     sed -i -e 's:@MSB_NODE_HOST@:${MSB_NODE_HOST}:g' ${WORKDIR}/microservicebus-node.service
+    sed -i -e 's:@MSB_DAM_SOCKETPATH@:${MSB_DAM_SOCKETPATH}:g' ${WORKDIR}/microservicebus-node.service
 
     #Install service file
     install -d ${D}${systemd_system_unitdir}
