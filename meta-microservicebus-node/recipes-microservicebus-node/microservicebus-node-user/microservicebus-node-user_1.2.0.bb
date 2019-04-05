@@ -15,6 +15,11 @@ MSB_NODE_GROUP ?= "msb"
 MSB_HOME_DIR_PATH ?= ""
 # Specify users groups
 MSB_USER_GROUPS ?= "tty,dialout"
+# Specify users uid
+MSB_USER_UID ?= "350"
+
+# Conditional dependencies on microservicebus-dam
+MSB_USE_DAM ?= "false"
 
 S = "${WORKDIR}"
 
@@ -30,7 +35,7 @@ USERADD_PACKAGES = "${PN}"
 MSB_CREATE_HOME = "${@oe.utils.conditional('MSB_HOME_DIR_PATH', '', '-m', '-M -d ' + d.getVar('MSB_HOME_DIR_PATH'), d)}"
 
 # Create msb user
-USERADD_PARAM_${PN} = "-u 1200 -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
+USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
 
 do_install () {
 
@@ -47,3 +52,11 @@ FILES_${PN} = "${sysconfdir}/sudoers.d/"
 # Prevents do_package failures with:
 # debugsources.list: No such file or directory:
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+
+# If microservicebus-dam is used MSB_USER_GROUPS need to be appended with microservicebus-dams 
+# user group to get right permissions, to be able to use microservicebus-dams group in recipe
+# it need to be dependent on it.
+# In config set: MSB_USE_DAM = "true" and MSB_USER_GROUPS_append = ",msbdam"
+DEPENDS += " \
+	${@bb.utils.contains('MSB_USE_DAM', 'true', 'microservicebus-dam', '',d)} \
+	"
