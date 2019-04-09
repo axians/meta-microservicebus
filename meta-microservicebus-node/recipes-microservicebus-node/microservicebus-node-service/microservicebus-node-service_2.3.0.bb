@@ -5,7 +5,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 #here we specify the source we want to build
-SRC_URI += "file://microservicebus-node.service"
+SRC_URI += "file://microservicebus-node.service \
+            file://com.microservicebus.core.conf"
+
 #here we specify the source directory, where we can do all the building and expect sources to be placed
 S = "${WORKDIR}"
 
@@ -38,6 +40,10 @@ do_install() {
     #Install service file
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/microservicebus-node.service ${D}${systemd_system_unitdir}
+
+    #Install dbus busconfig file
+    install -d ${D}${datadir}/dbus-1/system.d
+    install -m 0644 ${WORKDIR}/com.microservicebus.core.conf ${datadir}/dbus-1/system.d/com.microservicebus.core.conf
 }
 
 REQUIRED_DISTRO_FEATURES= "systemd"

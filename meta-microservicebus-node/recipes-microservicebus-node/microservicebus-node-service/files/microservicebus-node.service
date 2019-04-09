@@ -2,6 +2,8 @@
 Description=MicroServiceBus as a Service
 
 [Service]
+Type=dbus
+BusName=com.microservicebus.core
 ExecStart=/usr/bin/node /usr/lib/node/microservicebus-node/start.js @MSB_NODE_ARG@
 WorkingDirectory=@MSB_NODE_WORK_DIR@
 Restart=always
