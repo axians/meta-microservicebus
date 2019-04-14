@@ -15,7 +15,8 @@ SYSTEMD_PACKAGES = "${PN}"
 
 SYSTEMD_SERVICE_${PN} = " microservicebus-node.service"
 
-FILES_${PN} += "${systemd_system_unitdir}/microservicebus-node.service"
+FILES_${PN} += "${systemd_system_unitdir}/microservicebus-node.service \
+                ${datadir}/dbus-1/system.d/com.microservicebus.core.conf"
 
 #Dynamic parameters for service file, set default values
 MSB_NODE_ARG ?= "-w"
@@ -43,7 +44,7 @@ do_install() {
 
     #Install dbus busconfig file
     install -d ${D}${datadir}/dbus-1/system.d
-    install -m 0644 ${WORKDIR}/com.microservicebus.core.conf ${datadir}/dbus-1/system.d/com.microservicebus.core.conf
+    install -m 0644 ${WORKDIR}/com.microservicebus.core.conf ${D}${datadir}/dbus-1/system.d/com.microservicebus.core.conf
 }
 
 REQUIRED_DISTRO_FEATURES= "systemd"
