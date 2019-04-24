@@ -165,7 +165,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e2bc0aa64d278eb2b6ddeb692e294945 \
                     file://node_modules/prompt-radio/node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/prompt-choices/LICENSE;md5=01a8b0026a66c0139b0434fba078fa92 \
                     file://node_modules/prompt-choices/node_modules/kind-of/LICENSE;md5=3d83ea4c8ec9b31d9ff2c82fa29beabb \
-                    file://node_modules/prompt-choices/node_modules/shallow-clone/LICENSE;md5=5fb5a7fdbcfa3640822ec69bd3ee86e7 \
+                    file://node_modules/prompt-choices/node_modules/shallow-clone/LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9 \
                     file://node_modules/prompt-choices/node_modules/define-property/LICENSE;md5=5fb5a7fdbcfa3640822ec69bd3ee86e7 \
                     file://node_modules/prompt-choices/node_modules/clone-deep/LICENSE;md5=ccdc0959f67943eb090f7e7c299621af \
                     file://node_modules/number-is-nan/license;md5=a12ebca0510a773644101a99a867d210 \

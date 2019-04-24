@@ -272,5 +272,3 @@ LICENSE_${PN} = "MIT"
 
 RDEPENDS_${PN} += " python nodejs-npm "
 DEPENDS += " microservicebus-node-user"
-
-RDEPENDS_${PN}-dashdash += " bash"
