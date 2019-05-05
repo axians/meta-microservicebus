@@ -25,7 +25,8 @@ Table of Contents
  II. Add microservicebus-node to your target
 III. Add systemd service configuration for microservicebus-node
  IV. Add nodejs serialport support
-  V. Using package group to add support for building npm packages using gyp on target
+  V. Add nodejs dbus support
+ VI. Using package groups
 
 
 I. Adding the meta-microservicebus-node layer to your build
@@ -51,7 +52,7 @@ package to your local.conf or image recipe file:
 
   IMAGE_INSTALL_append = " microservicebus-node"
 
-This will install microservicebus-node in /usr/lib/node_modules/ on your target.
+This will install microservicebus-node in /usr/lib/node/ on your target.
 
 III. Add systemd service configuration for microservicebus-node
 ===============================================================
@@ -70,17 +71,43 @@ IV. Add nodejs serialport support
 On some constrained device where the support for building npm packages on the target is not supported
 the alternetive is to let bitbake build it, serialport is often used by microservicebus-node
 services and is therfore supplied in the layer for conviniens. It will be installed as an
-global npm package in /usr/lib/node_modules/.
+global npm package in /usr/lib/node/.
 To add serialport to your target add the "nodejs-serialport" package to your local.conf 
 or image recipe file:
 
   IMAGE_INSTALL_append = " nodejs-serialport"
 
-V. Using package group to add support for building npm packages using gyp on target
-===================================================================================
+V. Add nodejs dbus support
+==========================
+
+On some constrained device where the support for building npm packages on the target is not supported
+the alternetive is to let bitbake build it, dbus is used by microservicebus-core to supply an dbus API.
+It will be installed as an global npm package in /usr/lib/node/.
+To add nodejs-dbus to your target add the "nodejs-dbus" package to your local.conf 
+or image recipe file:
+
+  IMAGE_INSTALL_append = " nodejs-dbus"
+
+VI. Using package group to simplify installation of microservicebus related packages
+=====================================================================================
+
+meta-microservicebus-node is supplied with some package groups loclated in 
+./recipes-microservicebus-node/packagegroups:
+
+  - packagegroup-microservicebus-base
+
+
+  - packagegroup-microservicebus-extra
+
+
+  - packagegroup-microservicebus-build
+
+
 
 An package group is supplied to add all packaged for microservicebus-node + packages related
 to build npm packages using gyp on target, this includes make, gcc, binutils. To install the
 package group add the following to your local.conf or image recipe file:
 
-  IMAGE_INSTALL_append = " packagegroup-microservicebus"
+  IMAGE_INSTALL_append = " packagegroup-microservicebus-base"
+  IMAGE_INSTALL_append = " packagegroup-microservicebus-extra"
+  IMAGE_INSTALL_append = " packagegroup-microservicebus-build"
