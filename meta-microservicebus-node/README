@@ -27,6 +27,7 @@ III. Add systemd service configuration for microservicebus-node
  IV. Add nodejs serialport support
   V. Add nodejs dbus support
  VI. Using package groups
+VII. Configuration variables to adapt installations to target
 
 
 I. Adding the meta-microservicebus-node layer to your build
@@ -52,7 +53,8 @@ package to your local.conf or image recipe file:
 
   IMAGE_INSTALL_append = " microservicebus-node"
 
-This will install microservicebus-node in /usr/lib/node/ on your target.
+This will install microservicebus-node in /usr/lib/node/ on your target and microservicebus-node-user
+to setup an system user to run microservicebus-node under. For configuration look at section VII below.
 
 III. Add systemd service configuration for microservicebus-node
 ===============================================================
@@ -96,18 +98,36 @@ meta-microservicebus-node is supplied with some package groups loclated in
 
   - packagegroup-microservicebus-base
 
+    Adds all recomended packages to get microservicebus up and running.
 
   - packagegroup-microservicebus-extra
 
+    Adds nice to have packages like nodejs-serialport.
 
   - packagegroup-microservicebus-build
 
+    Adds all packages related to build npm packages using gyp on target,
+    this includes make, gcc, binutils.
 
+VII. Configuration variables to adapt installations to target
+==============================================================
 
-An package group is supplied to add all packaged for microservicebus-node + packages related
-to build npm packages using gyp on target, this includes make, gcc, binutils. To install the
-package group add the following to your local.conf or image recipe file:
+In most of the recipes supplied in meta-microservicebus week assignments to variables is
+used to allow customization of the build. Below is an list of variables grouped under respectice
+recipe. The default settings shuld be good to get you up and running.
 
-  IMAGE_INSTALL_append = " packagegroup-microservicebus-base"
-  IMAGE_INSTALL_append = " packagegroup-microservicebus-extra"
-  IMAGE_INSTALL_append = " packagegroup-microservicebus-build"
+  - microservicebus-node-user
+
+    MSB_NODE_USER ?= "msb"            # Name of user for microServicebus
+    MSB_NODE_GROUP ?= "msb"           # Name of user group for microServicebus
+    MSB_HOME_DIR_PATH ?= ""           # Specify home directory for msb user, default empty meaning it will be set to default for useradd
+    MSB_USER_GROUPS ?= "tty,dialout"  # Specify users groups
+    MSB_USER_UID ?= "350"             # Specify users uid
+
+  - microservicebus-node-service
+
+    MSB_NODE_ARG ?= "-w"              # Argument to microservicebus-node, default "-w" is to login using MAC and whitelist
+    MSB_NODE_WORK_DIR ?= "/usr/lib/node/microservicebus-node"   # Workdir is default to npm default installation dir
+    MSB_NODE_USER ?= "root"           # Name of user for microServicebus
+    MSB_NODE_GROUP ?= "root"          # Name of user group for microServicebus
+    MSB_NODE_HOST ?= "microservicebus.com"  # If using private hosting nd custom domain this need to change
