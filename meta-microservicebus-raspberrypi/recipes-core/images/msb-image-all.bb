@@ -14,3 +14,6 @@ IMAGE_INSTALL_append = " rauc"
 IMAGE_INSTALL_append = " u-boot-fw-utils"
 
 IMAGE_INSTALL_append = " packagegroup-microservicebus-dev"
+
+IMAGE_INSTALL_append = " microservicebus-dam"
+IMAGE_INSTALL_append = " microservicebus-dam-service"
