@@ -54,12 +54,12 @@ package to your local.conf or image recipe file:
   IMAGE_INSTALL_append = " microservicebus-node"
 
 This will install microservicebus-node in /usr/lib/node/ on your target and microservicebus-node-user
-to setup an system user to run microservicebus-node under. For configuration look at section VII below.
+to setup a system user to run microservicebus-node under. For configuration look at section VII below.
 
 III. Add systemd service configuration for microservicebus-node
 ===============================================================
 
-In order to run microservicebus-node agent as an service an systemd recipe is
+In order to run microservicebus-node agent as a service a systemd recipe is
 included as an reference, the systemd configuration may need alteration for your target.
 The systemd service file is located under recipes-microservicebus-node/microservicebus-node-service/files.
 To add systemd service to your target add the "microservicebus-node-service"
@@ -71,8 +71,8 @@ IV. Add nodejs serialport support
 =================================
 
 On some constrained device where the support for building npm packages on the target is not supported
-the alternetive is to let bitbake build it, serialport is often used by microservicebus-node
-services and is therfore supplied in the layer for conviniens. It will be installed as an
+the alternative is to let bitbake build it, serialport is often used by microservicebus-node
+services and is therefore supplied in the layer for convenience. It will be installed as an
 global npm package in /usr/lib/node/.
 To add serialport to your target add the "nodejs-serialport" package to your local.conf 
 or image recipe file:
@@ -83,8 +83,8 @@ V. Add nodejs dbus support
 ==========================
 
 On some constrained device where the support for building npm packages on the target is not supported
-the alternetive is to let bitbake build it, dbus is used by microservicebus-core to supply an dbus API.
-It will be installed as an global npm package in /usr/lib/node/.
+the alternative is to let bitbake build it, dbus is used by microservicebus-core to supply an dbus API.
+It will be installed as a global npm package in /usr/lib/node/.
 To add nodejs-dbus to your target add the "nodejs-dbus" package to your local.conf 
 or image recipe file:
 
@@ -94,7 +94,7 @@ VI. Using package groups
 ========================
 
 To simplify installation of microservicebus related packages on target
-meta-microservicebus-node is supplied with some package groups loclated in 
+meta-microservicebus-node is supplied with some package groups located in 
 ./recipes-microservicebus-node/packagegroups:
 
   - packagegroup-microservicebus-base
@@ -113,9 +113,9 @@ meta-microservicebus-node is supplied with some package groups loclated in
 VII. Configuration variables to adapt installations to target
 ==============================================================
 
-In most of the recipes supplied in meta-microservicebus week assignments to variables is
-used to allow customization of the build. Below is an list of variables grouped under respectice
-recipe. The default settings shuld be good to get you up and running.
+In most of the recipes supplied in meta-microservicebus weak assignments to variables is
+used to allow customization of the build. Below is a list of variables grouped under respective
+recipe. The default settings should be good to get you up and running.
 
   - microservicebus-node-user
 
@@ -127,8 +127,8 @@ recipe. The default settings shuld be good to get you up and running.
 
   - microservicebus-node-service
 
-    MSB_NODE_ARG ?= "-w"              # Argument to microservicebus-node, default "-w" is to login using MAC and whitelist
+    MSB_NODE_ARG ?= "-w"              # Argument to microservicebus-node, default "-w" is to login using MAC and white list
     MSB_NODE_WORK_DIR ?= "/usr/lib/node/microservicebus-node"   # Workdir is default to npm default installation dir
     MSB_NODE_USER ?= "root"           # Name of user for microServicebus
     MSB_NODE_GROUP ?= "root"          # Name of user group for microServicebus
-    MSB_NODE_HOST ?= "microservicebus.com"  # If using private hosting nd custom domain this need to change
+    MSB_NODE_HOST ?= "microservicebus.com"  # If using private hosting and custom domain this need to change
