@@ -16,7 +16,8 @@ Patches
 
 Please submit any patches via GitHub pull request on https://github.com/axians/meta-microservicebus
 
-Maintainer: Jonas Andersson jonaskgandersson@gmail.com 
+Maintainers:  Jonas Andersson   jonaskgandersson@gmail.com
+              Mikael Håkansson  wmmihaa@hotmail.com 
 
 Table of Contents
 =================
@@ -28,7 +29,6 @@ III. Add systemd service configuration for microservicebus-node
   V. Add nodejs dbus support
  VI. Using package groups
 VII. Configuration variables to adapt installations to target
-
 
 I. Adding the meta-microservicebus-node layer to your build
 ===========================================================
@@ -90,9 +90,10 @@ or image recipe file:
 
   IMAGE_INSTALL_append = " nodejs-dbus"
 
-VI. Using package group to simplify installation of microservicebus related packages
-=====================================================================================
+VI. Using package groups
+========================
 
+To simplify installation of microservicebus related packages on target
 meta-microservicebus-node is supplied with some package groups loclated in 
 ./recipes-microservicebus-node/packagegroups:
 
