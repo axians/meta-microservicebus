@@ -1,5 +1,5 @@
 # Base this image on core-image-base
-require recipes-core/images/core-image-base.bb
+require recipes-core/images/rpi-test-image.bb
 
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-openssh"
 
