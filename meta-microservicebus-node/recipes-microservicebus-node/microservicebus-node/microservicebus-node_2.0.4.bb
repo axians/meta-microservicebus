@@ -273,5 +273,5 @@ LICENSE_${PN}-tar = "ISC"
 LICENSE_${PN}-uuid = "MIT"
 LICENSE_${PN} = "MIT"
 
-RDEPENDS_${PN} += " python nodejs-npm "
+RDEPENDS_${PN} += " python nodejs-npm sudo"
 DEPENDS += " microservicebus-node-user"
