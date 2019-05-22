@@ -1,0 +1,8 @@
+[Unit]
+Description=Init rpi, create home dir on data partition, copy config and keys
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rpi-init.sh
+TimeoutStartSec=30
