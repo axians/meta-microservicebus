@@ -1,14 +1,12 @@
 inherit systemd
 
-SUMMARY = "Install and start microservicebus as systemd service"
+SUMMARY = "Install microservicebus as systemd service and add dbus conf file"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-#here we specify the source we want to build
 SRC_URI += "file://microservicebus-node.service \
             file://com.microservicebus.core.conf"
 
-#here we specify the source directory, where we can do all the building and expect sources to be placed
 S = "${WORKDIR}"
 
 SYSTEMD_PACKAGES = "${PN}"
@@ -21,13 +19,11 @@ FILES_${PN} += "${systemd_system_unitdir}/microservicebus-node.service \
 #Dynamic parameters for service file, set default values
 MSB_NODE_ARG ?= "-w"
 MSB_NODE_WORK_DIR ?= "/usr/lib/node/microservicebus-node"
-MSB_NODE_USER ?= "root"
-MSB_NODE_GROUP ?= "root"
+MSB_NODE_USER ?= "msb"
+MSB_NODE_GROUP ?= "msb"
 MSB_NODE_HOST ?= "microservicebus.com"
 MSB_DAM_SOCKETPATH ?= "/var/run/dam"
 
-#bitbake task
-#created a directory /home/root for target install the script
 do_install() {
              
     #Replace parameters in service file
