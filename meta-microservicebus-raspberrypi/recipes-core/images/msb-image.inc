@@ -23,8 +23,12 @@ IMAGE_INSTALL_append = " iw wpa-supplicant"
 IMAGE_INSTALL_append = " \
     packagegroup-microservicebus-base \
     "
-# Enable init script to prepare wifi, ssh, data partition
-IMAGE_INSTALL_append = " rpi-init"
+# Enable init script to prepare wifi, ssh, data partition.
+# Add resize2fs to be able to use all off sd-card
+IMAGE_INSTALL_append = " \
+    rpi-init \
+    e2fsprogs-resize2fs \
+    "
 
 # Add raspberry pi firmware
 RRECOMMENDS_${PN} = "\
