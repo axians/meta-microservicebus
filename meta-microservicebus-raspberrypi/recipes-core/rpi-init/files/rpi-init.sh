@@ -6,6 +6,7 @@
 # 
 # Copy WiFi settings from FAT partition to ROOTFS
 # Copy public key for SSH access from FAT partition to ROOTFS
+# Copy microservicebus-node service file from FAT partition to ROOTFS
 # Create home dir on data partition if missing and set owner
 
 # Get script name
@@ -15,7 +16,71 @@ MSB_USER_HOME_DIR="/data/home/msb"
 MSB_USER="msb"
 MSG_GROUP="msb"
 
+USB_READY=false
+
 RESULT=0
+
+# Check if USB flash is inserted
+if [ -e /dev/sda1 ]; then
+  echo "USB found" | systemd-cat -p info -t "${me}"
+  if grep -qs '/mnt/flash ' /proc/mounts; then
+    echo "USB already mounted" | systemd-cat -p info -t "${me}"
+    USB_READY=true
+  elif [ -d /mnt/flash ]; then
+    echo "Mount USB" | systemd-cat -p info -t "${me}"
+    mount /dev/sda1 /mnt/flash
+    if [ $? -eq 0 ]; then
+      USB_READY=true
+    fi
+  else
+    echo "Create mount point" | systemd-cat -p info -t "${me}"
+    mkdir /mnt/flash
+    echo "Mount USB" | systemd-cat -p info -t "${me}"
+    mount /dev/sda1 /mnt/flash
+    if [ $? -eq 0 ]; then
+      USB_READY=true
+    fi
+  fi
+
+  # USB flash mounted and ready
+  if [ $USB_READY == true ]; then
+    echo "USB mounted and ready" | systemd-cat -p info -t "${me}"
+    # Copy WiFi config files from USB to /boot
+    if [ -e /mnt/flash/wpa_supplicant-wlan0.conf ]; then
+      echo "Found WiFi config on USB, copy to /boot" | systemd-cat -p info -t "${me}"
+      cp /mnt/flash/wpa_supplicant-wlan0.conf /boot/wpa_supplicant-wlan0.conf
+      if [ $? -eq 0 ]; then
+        echo "Successfully copied WiFi config from USB" | systemd-cat -p info -t "${me}"
+      else
+        echo "Error, failed to copy WiFi config from USB to /boot" | systemd-cat -p warning -t "${me}"
+      fi
+    fi
+
+    # Copy SSH authorized_key files from USB to /boot
+    if [ -e /mnt/flash/authorized_key ]; then
+      echo "Found authorized_key on USB, copy to /boot" | systemd-cat -p info -t "${me}"
+      cp /mnt/flash/authorized_key /boot/authorized_key
+      if [ $? -eq 0 ]; then
+        echo "Successfully copied authorized_key from USB" | systemd-cat -p info -t "${me}"
+      else
+        echo "Error, failed to copy authorized_key from USB to /boot" | systemd-cat -p warning -t "${me}"
+      fi
+    fi
+
+    # Copy microservicebus-node.service files from USB to /boot
+    if [ -e /mnt/flash/microservicebus-node.service ]; then
+      echo "Found microservicebus-node.service file on USB, copy to /boot" | systemd-cat -p info -t "${me}"
+      cp /mnt/flash/microservicebus-node.service /boot/microservicebus-node.service
+      if [ $? -eq 0 ]; then
+        echo "Successfully copied microservicebus-node.service from USB" | systemd-cat -p info -t "${me}"
+      else
+        echo "Error, failed to copy microservicebus-node.service from USB to /boot" | systemd-cat -p warning -t "${me}"
+      fi
+    fi
+
+  fi
+
+fi
 
 # Check if WiFi config is on boot partition and copy to rootfs
 if [ -e /boot/wpa_supplicant-wlan0.conf ]; then
@@ -49,6 +114,19 @@ if [ -e /boot/authorized_keys ]; then
     echo "Error: Failed to copy authorized_keys from /boot"  | systemd-cat -p warning -t "${me}"
     RESULT=2
    fi
+fi
+
+# Check if microservicebus-node.service is on boot partition and copy to rootfs
+if [ -e /boot/microservicebus-node.service ]; then
+  cp /boot/microservicebus-node.service /lib/systemd/system/microservicebus-node.service
+  if [ $? -eq 0 ]; then
+    chmod 644  /lib/systemd/system/microservicebus-node.service
+    chown root /lib/systemd/system/microservicebus-node.service
+    echo "microservicebus-node.service file copied from /boot" | systemd-cat -p info -t "${me}"
+  else
+    echo "Error: Failed to copy microservicebus-node.service from /boot" | systemd-cat -p warning  -t "${me}"
+    RESULT=1
+  fi
 fi
 
 # Check if home dir is created
