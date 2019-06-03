@@ -1,13 +1,17 @@
 #!/bin/sh
-#
+
 # THIS IS ONLY FOR DEMO, DO NOT USE IN PRODUCTION
 #
 # Init rpi
 # 
-# Copy WiFi settings from FAT partition to ROOTFS
-# Copy public key for SSH access from FAT partition to ROOTFS
-# Copy microservicebus-node service file from FAT partition to ROOTFS
+# USB is scanned for configuration files if found they are copied
+# to /boot and the copied from /boot to rootfs.
+#
+# Copy WiFi settings
+# Copy public key for SSH access
+# Copy microservicebus-node service file
 # Create home dir on data partition if missing and set owner
+# Create RAUC data dir
 
 # Get script name
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
@@ -15,7 +19,7 @@ me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 MSB_USER_HOME_DIR="/data/home/msb"
 MSB_USER="msb"
 MSG_GROUP="msb"
-
+RAUC_VAR_DIR="/data/var/rauc"
 USB_READY=false
 
 RESULT=0
@@ -56,14 +60,14 @@ if [ -e /dev/sda1 ]; then
       fi
     fi
 
-    # Copy SSH authorized_key files from USB to /boot
-    if [ -e /mnt/flash/authorized_key ]; then
-      echo "Found authorized_key on USB, copy to /boot" | systemd-cat -p info -t "${me}"
-      cp /mnt/flash/authorized_key /boot/authorized_key
+    # Copy SSH authorized_keys files from USB to /boot
+    if [ -e /mnt/flash/authorized_keys ]; then
+      echo "Found authorized_keys on USB, copy to /boot" | systemd-cat -p info -t "${me}"
+      cp /mnt/flash/authorized_keys /boot/authorized_keys
       if [ $? -eq 0 ]; then
-        echo "Successfully copied authorized_key from USB" | systemd-cat -p info -t "${me}"
+        echo "Successfully copied authorized_keys from USB" | systemd-cat -p info -t "${me}"
       else
-        echo "Error, failed to copy authorized_key from USB to /boot" | systemd-cat -p warning -t "${me}"
+        echo "Error, failed to copy authorized_keys from USB to /boot" | systemd-cat -p warning -t "${me}"
       fi
     fi
 
@@ -151,8 +155,27 @@ else
   fi
 fi
 
+# Check if rauc dir is creted
+if [ -d ${RAUC_VAR_DIR} ]; then
+  echo "RAUC dir ready" | systemd-cat -p info -t "${me}"
+else
+  # Create rauc dir if missing
+  mkdir -p ${RAUC_VAR_DIR}}
+  if [ $? -ne 0 ]; then
+    echo "Error: Failed to create ${RAUC_VAR_DIR}}" | systemd-cat -p emerg -t "${me}"
+  else
+    echo "Created ${RAUC_VAR_DIR}" | systemd-cat -p info -t "${me}"
+  fi
+fi
+
 # Workaround, manually load module for WiFi
 echo "Load BRCM module" | systemd-cat -p info -t "${me}"
 modprobe brcmfmac
+
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to load WiFi module, ${?}" | systemd-cat -p emerg -t "${me}"
+else
+  echo "WiFi module loaded" | systemd-cat -p info -t "${me}"
+fi
 
 exit $RESULT
