@@ -126,6 +126,9 @@ NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown.json"
 
 inherit npm
 
+# Name of user for microServicebus
+MSB_NODE_USER ?= "msb"
+
 do_install_append(){
     # Change owner of msb-node to set user, needed for msb-core install
 	chown -R ${MSB_NODE_USER} ${D}${libdir}/node/microservicebus-node/
@@ -270,5 +273,5 @@ LICENSE_${PN}-tar = "ISC"
 LICENSE_${PN}-uuid = "MIT"
 LICENSE_${PN} = "MIT"
 
-RDEPENDS_${PN} += " python nodejs-npm "
+RDEPENDS_${PN} += " python nodejs-npm sudo"
 DEPENDS += " microservicebus-node-user"
