@@ -1,10 +1,7 @@
-SUMMARY = "microServiceBus-node is the node.js based device agent used together with microServiceBus.com."
+require microservicebus-node.inc
 
-DESCRIPTION =  "microServiceBus.com is an integration platform for IoT and enterprise applications. \
-                This platform lets you expose microservices from small devices and large systems using a remote hosting infrastructure. \
-                These nodes can run on both Linux and Windows using components built either natively (ARM) or using node.js."
-
-HOMEPAGE = "https://microservicebus.com"
+NPM_SHRINKWRAP := "${THISDIR}/${PN}/npm-shrinkwrap_${PV}.json"
+NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown_${PV}.json"
 
 # WARNING: the following LICENSE and LIC_FILES_CHKSUM values are best guesses - it is
 # your responsibility to verify that the values are complete and correct.
@@ -119,23 +116,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cc883f74a12beac0fd9a1809032541d0 \
                     file://node_modules/strip-json-comments/license;md5=a12ebca0510a773644101a99a867d210 \
                     file://node_modules/oauth-sign/LICENSE;md5=f3f8ead5440d1c311b45be065d135d90"
 
-SRC_URI = "npm://registry.npmjs.org;name=microservicebus-node;version=${PV}"
-
-NPM_SHRINKWRAP := "${THISDIR}/${PN}/npm-shrinkwrap.json"
-NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown.json"
-
-inherit npm
-
-# Name of user for microServicebus
-MSB_NODE_USER ?= "msb"
-
-do_install_append(){
-    # Change owner of msb-node to set user, needed for msb-core install
-	chown -R ${MSB_NODE_USER} ${D}${libdir}/node/microservicebus-node/
-}
-
-# Must be set after inherit npm since that itself sets S
-S = "${WORKDIR}/npmpkg"
 LICENSE_${PN}-app-module-path = "BSD-2-Clause"
 LICENSE_${PN}-async-lodash = "MIT"
 LICENSE_${PN}-async = "MIT"
@@ -272,6 +252,3 @@ LICENSE_${PN}-tar-yallist = "ISC"
 LICENSE_${PN}-tar = "ISC"
 LICENSE_${PN}-uuid = "MIT"
 LICENSE_${PN} = "MIT"
-
-RDEPENDS_${PN} += " python nodejs-npm sudo"
-DEPENDS += " microservicebus-node-user"
