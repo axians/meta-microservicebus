@@ -1,5 +1,6 @@
 FILESEXTRAPATHS_append := "${THISDIR}/files:"
-SRC_URI += "file://eth.network"
+SRC_URI += "file://eth.network \
+            file://wlan0.network"
 
 FILES_${PN} += "{sysconfdir}/systemd/network/*"
 

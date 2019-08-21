@@ -1,5 +1,7 @@
 This README file contains information on the contents of the meta-microservicebus-raspberrypi layer.
 
+THIS IS FOR DEMO USE, DO NOT USE IN PRODUCTION
+
 This have been tested on raspberrypi3 but other machines supported by meta-raspberrypi should
 work without any bigger modifications.
 
@@ -18,17 +20,13 @@ Dependencies
   URI: https://github.com/rauc/meta-rauc
   branch: master
 
-For microservicebus-dam support
-
-  URI: https://github.com/axians/meta-microservicebus-dam
-  branch: master
-
 Patches
 =======
 
 Please submit any patches via GitHub pull request on https://github.com/axians/microservicebus-yocto
 
-Maintainer: Jonas Andersson jonaskgandersson@gmail.com 
+Maintainer: Jonas Andersson   jonaskgandersson@gmail.com
+            Mikael Håkansson  wmmihaa@hotmail.com 
 
 Table of Contents
 =================

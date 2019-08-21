@@ -7,20 +7,24 @@ inherit image_types
 #
 #    0                      -> IMAGE_ROOTFS_ALIGNMENT         - reserved for other data
 #    IMAGE_ROOTFS_ALIGNMENT -> BOOT_SPACE                     - bootloader and kernel
-#    BOOT_SPACE             -> SDIMG_SIZE                     - rootfs
+#    BOOT_SPACE             -> SDIMG_SIZE                     - rootfs A
+#    SDIMG_SIZE             -> SDIMG_SIZE                     - rootfs B
+#    SDIMG_SIZE             -> DATA_SIZE                      - data
 #
 
-#                                                     Default Free space = 1.3x
-#                                                     Use IMAGE_OVERHEAD_FACTOR to add more space
-#                                                     <--------->
-#            4MiB              40MiB           SDIMG_ROOTFS
-# <-----------------------> <----------> <---------------------->
-#  ------------------------ ------------ ------------------------
-# | IMAGE_ROOTFS_ALIGNMENT | BOOT_SPACE | ROOTFS_SIZE            |
-#  ------------------------ ------------ ------------------------
-# ^                        ^            ^                        ^
-# |                        |            |                        |
-# 0                      4MiB     4MiB + 40MiB       4MiB + 40Mib + SDIMG_ROOTFS
+# Use IMAGE_ROOTFS_SIZE to set fixed size rootfs every build to not break update
+
+#            4MiB              40MiB           SDIMG_ROOTFS_A           SDIMG_ROOTFS_B           SDIMG_DATA
+# <-----------------------> <----------> <----------------------> <----------------------> <---------------------->
+#  ------------------------ ------------ ------------------------ ------------------------ ------------------------
+# | IMAGE_ROOTFS_ALIGNMENT | BOOT_SPACE | ROOTFS_SIZE            | ROOTFS_SIZE            | DATA_SIZE              |
+#  ------------------------ ------------ ------------------------ ------------------------ ------------------------
+# ^                        ^            ^                        ^                        ^
+# |                        |            |                        |                        |
+# 0                      4MiB     4MiB + 40MiB       4MiB + 40Mib + SDIMG_ROOTFS_A        4MiB + 40Mib + SDIMG_ROOTFS_A+B
+
+# Default data size is set to 2 GB
+SDIMG_DATA_SIZE ?= "2097152"
 
 # This image depends on the rootfs image
 SDIMG_ROOTFS_TYPE ?= "ext3"
@@ -64,6 +68,9 @@ do_image_rpi_sdimg[recrdeps] = "do_build"
 # SD card image name
 SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.rpi-sdimg"
 
+# Empty ext4 image for data
+DATAIMG = "${WORKDIR}/data_empty.ext4"
+
 # Compression method to apply to SDIMG after it has been created. Supported
 # compression formats are "gzip", "bzip2" or "xz". The original .rpi-sdimg file
 # is kept and a new compressed file is created if one of these compression
@@ -95,15 +102,19 @@ IMAGE_CMD_rpi-sdimg () {
     # Align partitions
     BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)
     BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE_ALIGNED} - ${BOOT_SPACE_ALIGNED} % ${IMAGE_ROOTFS_ALIGNMENT})
-    SDIMG_SIZE=$(expr ${IMAGE_ROOTFS_ALIGNMENT} + ${BOOT_SPACE_ALIGNED} + $ROOTFS_SIZE + $ROOTFS_SIZE)
+    SDIMG_SIZE=$(expr ${IMAGE_ROOTFS_ALIGNMENT} + ${BOOT_SPACE_ALIGNED} + $ROOTFS_SIZE + $ROOTFS_SIZE + ${SDIMG_DATA_SIZE})
 
-    echo "Creating filesystem with Boot partition ${BOOT_SPACE_ALIGNED} KiB and RootFS $ROOTFS_SIZE KiB"
+    echo "Creating filesystem with Boot partition ${BOOT_SPACE_ALIGNED} KiB, RootFS*2 $ROOTFS_SIZE KiB and Data ${SDIMG_DATA_SIZE} KiB"
 
     # Check if we are building with device tree support
     DTS="${KERNEL_DEVICETREE}"
 
     # Initialize sdcard image file
     dd if=/dev/zero of=${SDIMG} bs=1024 count=0 seek=${SDIMG_SIZE}
+
+    # Initialize data image file
+    dd if=/dev/zero of=${DATAIMG} bs=1024 count=0 seek=${SDIMG_DATA_SIZE}
+    mkfs.ext4 -F ${DATAIMG}
 
     # Create partition table
     parted -s ${SDIMG} mklabel msdos
@@ -113,7 +124,9 @@ IMAGE_CMD_rpi-sdimg () {
     # Create rootfs partition for system A 
     parted -s ${SDIMG} -- unit KiB mkpart primary ext2 $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT}) $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT} \+ ${ROOTFS_SIZE})
     # Create rootfs partition for system B to end of disk
-    parted -s ${SDIMG} -- unit KiB mkpart primary ext2 $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT} \+ ${ROOTFS_SIZE}) -1s
+    parted -s ${SDIMG} -- unit KiB mkpart primary ext2 $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT} \+ ${ROOTFS_SIZE}) $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT} \+ ${ROOTFS_SIZE} \+ ${ROOTFS_SIZE} )
+    # Create data partition to end of disk
+    parted -s ${SDIMG} -- unit KiB mkpart primary ext2 $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT} \+ ${ROOTFS_SIZE} \+ ${ROOTFS_SIZE} ) -1s
     parted ${SDIMG} print
 
     # Create a vfat image with boot files
@@ -179,6 +192,8 @@ IMAGE_CMD_rpi-sdimg () {
         dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024 + ${ROOTFS_SIZE} \* 1024)
     fi
 
+    # Write data image
+    dd if=${DATAIMG} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024 + ${ROOTFS_SIZE} \* 1024 + ${ROOTFS_SIZE} \* 1024)
 
     # Optionally apply compression
     case "${SDIMG_COMPRESSION}" in

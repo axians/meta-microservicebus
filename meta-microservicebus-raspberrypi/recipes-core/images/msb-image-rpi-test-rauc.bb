@@ -9,3 +9,18 @@ IMAGE_INSTALL_append = " \
     packagegroup-microservicebus-extra \
     packagegroup-microservicebus-build \
     "
+
+# Packages from packagegroup-rpi-test
+RDEPENDS_${PN} = "\
+    bcm2835-tests \
+    wiringpi \
+    rpio \
+    rpi-gpio \
+    pi-blaster \
+    python-rtimu \
+    python-sense-hat \
+    connman \
+    connman-client \
+    crda \
+    bluez5 \
+"
