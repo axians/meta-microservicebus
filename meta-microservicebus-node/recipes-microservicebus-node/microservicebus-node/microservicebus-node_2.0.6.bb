@@ -67,7 +67,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cc883f74a12beac0fd9a1809032541d0 \
                     file://node_modules/qs/LICENSE;md5=d5c7c6dc45a33a0a9620ed81315672d7 \
                     file://node_modules/capture-stack-trace/license;md5=be72c3ad86c1c4e9578a1945b082b17d \
                     file://node_modules/caseless/LICENSE;md5=e9dadf023ba6ebd98e3e0acb6e2470e3 \
-                    file://node_modules/lodash/LICENSE;md5=8f10c81975f996c3ba5b424884b4af96 \
+                    file://node_modules/lodash/LICENSE;md5=8e2fca844c70b3833d7228885447c026 \
                     file://node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/fast-json-stable-stringify/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
                     file://node_modules/tough-cookie/LICENSE;md5=7189377a5215f1211b70cf2b9754841e \
