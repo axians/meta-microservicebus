@@ -160,9 +160,9 @@ if [ -d ${RAUC_VAR_DIR} ]; then
   echo "RAUC dir ready" | systemd-cat -p info -t "${me}"
 else
   # Create rauc dir if missing
-  mkdir -p ${RAUC_VAR_DIR}}
+  mkdir -p ${RAUC_VAR_DIR}
   if [ $? -ne 0 ]; then
-    echo "Error: Failed to create ${RAUC_VAR_DIR}}" | systemd-cat -p emerg -t "${me}"
+    echo "Error: Failed to create ${RAUC_VAR_DIR}" | systemd-cat -p emerg -t "${me}"
   else
     echo "Created ${RAUC_VAR_DIR}" | systemd-cat -p info -t "${me}"
   fi
