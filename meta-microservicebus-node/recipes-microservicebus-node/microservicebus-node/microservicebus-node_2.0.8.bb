@@ -12,6 +12,7 @@ NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown_${PV}.json"
 # licenses then you should change the value to separate the licenses with |
 # instead of &. If there is any doubt, check the accompanying documentation
 # to determine which situation is applicable.
+
 LICENSE = "BSD-3-Clause & Unlicense & Apache-2.0 & \
 BSD-2-Clause & ISC & MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cc883f74a12beac0fd9a1809032541d0 \
@@ -67,7 +68,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cc883f74a12beac0fd9a1809032541d0 \
                     file://node_modules/qs/LICENSE;md5=d5c7c6dc45a33a0a9620ed81315672d7 \
                     file://node_modules/capture-stack-trace/license;md5=be72c3ad86c1c4e9578a1945b082b17d \
                     file://node_modules/caseless/LICENSE;md5=e9dadf023ba6ebd98e3e0acb6e2470e3 \
-                    file://node_modules/lodash/LICENSE;md5=8f10c81975f996c3ba5b424884b4af96 \
                     file://node_modules/ms/license.md;md5=fd56fd5f1860961dfa92d313167c37a6 \
                     file://node_modules/fast-json-stable-stringify/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
                     file://node_modules/tough-cookie/LICENSE;md5=7189377a5215f1211b70cf2b9754841e \
@@ -99,7 +99,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cc883f74a12beac0fd9a1809032541d0 \
                     file://node_modules/mkdirp/node_modules/minimist/LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1 \
                     file://node_modules/json-stringify-safe/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/verror/LICENSE;md5=04fce49dd88d841ceb36616ab9789ce0 \
-                    file://node_modules/async/LICENSE;md5=9ec5487258cc65072647c5488b4d59ad \
+                    file://node_modules/async/LICENSE;md5=73f63c1fa4541b2f2f34d77140ebe89d \
                     file://node_modules/har-schema/LICENSE;md5=bfa81591facc9224e4c7451c8dc12958 \
                     file://node_modules/tunnel-agent/LICENSE;md5=f3f8ead5440d1c311b45be065d135d90 \
                     file://node_modules/har-validator/LICENSE;md5=6f7daec5e5143ffeb21745646b425ab2 \
@@ -116,8 +116,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cc883f74a12beac0fd9a1809032541d0 \
                     file://node_modules/strip-json-comments/license;md5=a12ebca0510a773644101a99a867d210 \
                     file://node_modules/oauth-sign/LICENSE;md5=f3f8ead5440d1c311b45be065d135d90"
 
+# Must be set after inherit npm since that itself sets S
+S = "${WORKDIR}/npmpkg"
 LICENSE_${PN}-app-module-path = "BSD-2-Clause"
-LICENSE_${PN}-async-lodash = "MIT"
 LICENSE_${PN}-async = "MIT"
 LICENSE_${PN}-colors = "MIT"
 LICENSE_${PN}-compare-version = "MIT"
@@ -127,11 +128,10 @@ LICENSE_${PN}-network-commander-graceful-readlink = "MIT"
 LICENSE_${PN}-network-commander = "MIT"
 LICENSE_${PN}-network-needle-debug-ms = "MIT"
 LICENSE_${PN}-network-needle-debug = "MIT"
-LICENSE_${PN}-network-needle-iconv-lite-safer-buffer = "MIT"
 LICENSE_${PN}-network-needle-iconv-lite = "MIT"
 LICENSE_${PN}-network-needle = "MIT"
-LICENSE_${PN}-network-wmic-async-lodash = "MIT"
 LICENSE_${PN}-network-wmic-async = "MIT"
+LICENSE_${PN}-network-wmic-iconv-lite-safer-buffer = "MIT"
 LICENSE_${PN}-network-wmic-iconv-lite = "MIT"
 LICENSE_${PN}-network-wmic = "ISC"
 LICENSE_${PN}-network = "MIT"
@@ -167,11 +167,11 @@ LICENSE_${PN}-package-json-got-unzip-response = "MIT"
 LICENSE_${PN}-package-json-got-url-parse-lax-prepend-http = "MIT"
 LICENSE_${PN}-package-json-got-url-parse-lax = "MIT"
 LICENSE_${PN}-package-json-got = "MIT"
+LICENSE_${PN}-package-json-rc-deep-extend = "MIT"
+LICENSE_${PN}-package-json-rc-ini = "ISC"
+LICENSE_${PN}-package-json-rc-minimist = "MIT"
+LICENSE_${PN}-package-json-rc-strip-json-comments = "MIT"
 LICENSE_${PN}-package-json-rc = "MIT"
-LICENSE_${PN}-package-json-registry-url-rc-deep-extend = "MIT"
-LICENSE_${PN}-package-json-registry-url-rc-ini = "ISC"
-LICENSE_${PN}-package-json-registry-url-rc-minimist = "MIT"
-LICENSE_${PN}-package-json-registry-url-rc-strip-json-comments = "MIT"
 LICENSE_${PN}-package-json-registry-url-rc = "MIT"
 LICENSE_${PN}-package-json-registry-url = "MIT"
 LICENSE_${PN}-package-json = "MIT"
@@ -184,6 +184,7 @@ LICENSE_${PN}-request-forever-agent = "Apache-2.0"
 LICENSE_${PN}-request-form-data-asynckit = "MIT"
 LICENSE_${PN}-request-form-data-combined-stream-delayed-stream = "MIT"
 LICENSE_${PN}-request-form-data-combined-stream = "MIT"
+LICENSE_${PN}-request-form-data-mime-types-mime-db = "MIT"
 LICENSE_${PN}-request-form-data-mime-types = "MIT"
 LICENSE_${PN}-request-form-data = "MIT"
 LICENSE_${PN}-request-har-validator-ajv-fast-deep-equal = "MIT"
@@ -223,7 +224,6 @@ LICENSE_${PN}-request-http-signature = "MIT"
 LICENSE_${PN}-request-is-typedarray = "MIT"
 LICENSE_${PN}-request-isstream = "MIT"
 LICENSE_${PN}-request-json-stringify-safe = "ISC"
-LICENSE_${PN}-request-mime-types-mime-db = "MIT"
 LICENSE_${PN}-request-mime-types = "MIT"
 LICENSE_${PN}-request-oauth-sign = "Apache-2.0"
 LICENSE_${PN}-request-performance-now = "MIT"
