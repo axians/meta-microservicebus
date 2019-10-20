@@ -77,7 +77,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e2bc0aa64d278eb2b6ddeb692e294945 \
                     file://node_modules/ansi-regex/license;md5=a12ebca0510a773644101a99a867d210 \
                     file://node_modules/once/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/commander/LICENSE;md5=25851d4d10d6611a12d5571dab945a00 \
-                    file://node_modules/set-value/LICENSE;md5=ccdc0959f67943eb090f7e7c299621af \
+                    file://node_modules/set-value/LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b \
                     file://node_modules/ansi-yellow/LICENSE;md5=12559a9acb747541ab67609d77c0f1de \
                     file://node_modules/radio-symbol/LICENSE;md5=525d8ba712c1da523da9e6e7d61ff440 \
                     file://node_modules/code-point-at/license;md5=a12ebca0510a773644101a99a867d210 \
@@ -91,7 +91,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e2bc0aa64d278eb2b6ddeb692e294945 \
                     file://node_modules/strip-color/LICENSE;md5=e060235353cb686ae1695ec7db63cfbc \
                     file://node_modules/mixin-object/LICENSE;md5=360e60c9b7aa16428ee600ff20935e1f \
                     file://node_modules/mixin-object/node_modules/for-in/LICENSE;md5=c8f80ed52c9074414e8a69541cdc1587 \
-                    file://node_modules/xtend/LICENCE;md5=96bcdf84e670aafacac9e094bce29ac9 \
+                    file://node_modules/xtend/LICENSE;md5=66787c5cd698a0b30b358c7e30f500ca \
                     file://node_modules/chownr/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/clone-deep/LICENSE;md5=2f5638b0557426da0c3bd67e00a0ebde \
                     file://node_modules/clone-deep/node_modules/kind-of/LICENSE;md5=3d83ea4c8ec9b31d9ff2c82fa29beabb \
