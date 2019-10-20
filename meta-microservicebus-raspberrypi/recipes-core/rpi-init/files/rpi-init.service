@@ -1,0 +1,12 @@
+[Unit]
+Description=Init rpi, create home dir on data partition, copy config and keys
+DefaultDependencies=no
+After=local-fs.target
+Before=network-pre.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rpi-init.sh
+
+[Install]
+WantedBy=multi-user.target
