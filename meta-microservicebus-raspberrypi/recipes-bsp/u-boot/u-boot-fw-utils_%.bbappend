@@ -1,7 +1,7 @@
 SUMMARY = "Replace default configfile for u-boot fw-utils"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
-SRC_URI_append = "file://fw_env.config"
+SRC_URI_append = " file://fw_env.config"
 
 do_install_append () {
 	install -d ${D}${sysconfdir}
