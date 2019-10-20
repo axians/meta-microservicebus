@@ -1,7 +1,7 @@
 inherit bundle
 
-RAUC_BUNDLE_COMPATIBLE = "msb-rpi3-rauc"
-RAUC_BUNDLE_VERSION = "1.2.1"
+RAUC_BUNDLE_COMPATIBLE = "${MACHINE}-msb-rauc"
+RAUC_BUNDLE_VERSION = "2.0.0"
 
 RAUC_BUNDLE_SLOTS = "rootfs"
 RAUC_SLOT_rootfs[fstype] = "ext4"
