@@ -2,7 +2,7 @@ This README file contains information on the contents of the meta-microservicebu
 
 THIS IS FOR DEMO USE, DO NOT USE IN PRODUCTION
 
-This have been tested on raspberrypi3 but other machines supported by meta-raspberrypi should
+This have been tested on raspberrypi3 and raspberrypi4 but other machines supported by meta-raspberrypi should
 work without any bigger modifications.
 
 Please see the corresponding sections below for details.
@@ -48,7 +48,7 @@ All dependent layers will have to be added to bblayer.conf as above.
 
 III. Local.conf
 ===============
-MACHINE = "raspberrypi3"
+MACHINE = "raspberrypi4"
 
 DISTRO ?= "poky"
 
@@ -63,7 +63,7 @@ VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 
 PACKAGE_CLASSES ?= "package_deb"
 
-EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-openssh"
+#EXTRA_IMAGE_FEATURES += " debug-tweaks"
 
 USER_CLASSES ?= "buildstats image-mklibs image-prelink"
 
@@ -88,3 +88,15 @@ CONF_VERSION = "1"
 RPI_USE_U_BOOT = "1"
 
 SERIAL_CONSOLE = ""
+
+# Specify user for microservicebus-node
+MSB_NODE_USER = "msb"
+MSB_NODE_GROUP = "msb"
+MSB_NODE_ARG = "-w"
+
+# Specify home directory for msb user.
+MSB_HOME_DIR_PATH = "/data/home/${MSB_NODE_USER}"
+
+# Specify default SSID and password for WiFi
+RPI_WIFI_SSID = "SSID"
+RPI_WIFI_PSK = "PASSW"
