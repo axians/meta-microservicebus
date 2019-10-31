@@ -1,0 +1,102 @@
+This README file contains information on the contents of the meta-microservicebus-raspberrypi layer.
+
+THIS IS FOR DEMO USE, DO NOT USE IN PRODUCTION
+
+This have been tested on raspberrypi3 and raspberrypi4 but other machines supported by meta-raspberrypi should
+work without any bigger modifications.
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+  URI: https://github.com/agherzan/meta-raspberrypi
+  branch: master
+
+  URI: https://github.com/axians/meta-microservicebus
+  layer: meta-microservicebus-node
+  branch: master
+
+  URI: https://github.com/rauc/meta-rauc
+  branch: master
+
+Patches
+=======
+
+Please submit any patches via GitHub pull request on https://github.com/axians/microservicebus-yocto
+
+Maintainer: Jonas Andersson   jonaskgandersson@gmail.com
+            Mikael Håkansson  wmmihaa@hotmail.com 
+
+Table of Contents
+=================
+
+   I. Adding the meta-microservicebus-raspberrypi layer to your build
+  II. Misc
+ III. Local.conf example
+
+
+I. Adding the meta-microservicebus-raspberrypi layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer microservicebus-yocto/meta-microservicebus-raspberrypi'
+
+II. Misc
+========
+
+All dependent layers will have to be added to bblayer.conf as above.
+
+III. Local.conf
+===============
+MACHINE = "raspberrypi4"
+
+DISTRO ?= "poky"
+
+IMAGE_FSTYPES = "tar.bz2 ext4 rpi-sdimg"
+
+SDIMG_ROOTFS_TYPE = "ext4"
+
+DISTRO_FEATURES_append = " systemd"
+DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+VIRTUAL-RUNTIME_init_manager = "systemd"
+VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+
+PACKAGE_CLASSES ?= "package_deb"
+
+#EXTRA_IMAGE_FEATURES += " debug-tweaks"
+
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+
+PATCHRESOLVE = "noop"
+
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+
+PACKAGECONFIG_append_pn-qemu-native = " sdl"
+
+PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+
+CONF_VERSION = "1"
+
+RPI_USE_U_BOOT = "1"
+
+SERIAL_CONSOLE = ""
+
+# Specify user for microservicebus-node
+MSB_NODE_USER = "msb"
+MSB_NODE_GROUP = "msb"
+MSB_NODE_ARG = "-w"
+
+# Specify home directory for msb user.
+MSB_HOME_DIR_PATH = "/data/home/${MSB_NODE_USER}"
+
+# Specify default SSID and password for WiFi
+RPI_WIFI_SSID = "SSID"
+RPI_WIFI_PSK = "PASSW"
