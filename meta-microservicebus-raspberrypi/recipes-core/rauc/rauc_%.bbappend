@@ -8,8 +8,4 @@ SRC_URI_append = " \
 SRC_URI_append_raspberrypi3 = " \
   file://raspberrypi3/system.conf \
   "
-
-SRC_URI_append_raspberrypi4 = " \
-  file://raspberrypi4/system.conf \
-  "
   

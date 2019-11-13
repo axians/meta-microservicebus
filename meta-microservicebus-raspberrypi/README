@@ -2,7 +2,7 @@ This README file contains information on the contents of the meta-microservicebu
 
 THIS IS FOR DEMO USE, DO NOT USE IN PRODUCTION
 
-This have been tested on raspberrypi3 and raspberrypi4 but other machines supported by meta-raspberrypi should
+This have been tested on raspberrypi3 but other machines supported by meta-raspberrypi should
 work without any bigger modifications.
 
 Please see the corresponding sections below for details.
@@ -48,7 +48,7 @@ All dependent layers will have to be added to bblayer.conf as above.
 
 III. Local.conf
 ===============
-MACHINE = "raspberrypi4"
+MACHINE = "raspberrypi3"
 
 DISTRO ?= "poky"
 
