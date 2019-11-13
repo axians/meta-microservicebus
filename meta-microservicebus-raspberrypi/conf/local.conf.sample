@@ -1,0 +1,52 @@
+MACHINE = "raspberrypi3"
+
+DISTRO ?= "poky"
+
+IMAGE_FSTYPES = "tar.bz2 ext4 rpi-sdimg"
+
+SDIMG_ROOTFS_TYPE = "ext4"
+
+DISTRO_FEATURES_append = " systemd"
+DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+VIRTUAL-RUNTIME_init_manager = "systemd"
+VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+
+PACKAGE_CLASSES ?= "package_deb"
+
+#EXTRA_IMAGE_FEATURES += " debug-tweaks"
+
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+
+PATCHRESOLVE = "noop"
+
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+
+PACKAGECONFIG_append_pn-qemu-native = " sdl"
+
+PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+
+CONF_VERSION = "1"
+
+RPI_USE_U_BOOT = "1"
+
+SERIAL_CONSOLE = ""
+
+# Specify user for microservicebus-node
+MSB_NODE_USER = "msb"
+MSB_NODE_GROUP = "msb"
+MSB_NODE_ARG = "-w"
+
+# Specify home directory for msb user.
+MSB_HOME_DIR_PATH = "/data/home/${MSB_NODE_USER}"
+
+# Specify default SSID and password for WiFi
+RPI_WIFI_SSID = "SSID"
+RPI_WIFI_PSK = "PASSW"
