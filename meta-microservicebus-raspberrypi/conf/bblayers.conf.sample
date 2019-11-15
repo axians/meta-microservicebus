@@ -6,16 +6,16 @@ BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
 BBLAYERS ?= " \
-  /home/yocto/yocto/source/poky/meta \
-  /home/yocto/yocto/source/poky/meta-poky \
-  /home/yocto/yocto/source/poky/meta-yocto-bsp \
-  /home/yocto/yocto/source/meta-openembedded/meta-oe \
-  /home/yocto/yocto/source/meta-openembedded/meta-filesystems \
-  /home/yocto/yocto/source/meta-openembedded/meta-networking \
-  /home/yocto/yocto/source/meta-openembedded/meta-python \
-  /home/yocto/yocto/source/meta-microservicebus/meta-microservicebus-node \
-  /home/yocto/yocto/source/meta-microservicebus/meta-microservicebus-raspberrypi \
-  /home/yocto/yocto/source/meta-raspberrypi \
-  /home/yocto/yocto/source/meta-rauc \
+  ${TOPDIR}/../meta \
+  ${TOPDIR}/../meta-poky \
+  ${TOPDIR}/../meta-yocto-bsp \
+  ${TOPDIR}/../meta-openembedded/meta-oe \
+  ${TOPDIR}/../meta-openembedded/meta-filesystems \
+  ${TOPDIR}/../meta-openembedded/meta-networking \
+  ${TOPDIR}/../meta-openembedded/meta-python \
+  ${TOPDIR}/../meta-microservicebus/meta-microservicebus-node \
+  ${TOPDIR}/../meta-microservicebus/meta-microservicebus-raspberrypi \
+  ${TOPDIR}/../meta-raspberrypi \
+  ${TOPDIR}/../meta-rauc \
   "
   
