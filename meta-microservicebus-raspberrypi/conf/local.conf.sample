@@ -13,7 +13,7 @@ VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 
 PACKAGE_CLASSES ?= "package_deb"
 
-#EXTRA_IMAGE_FEATURES += " debug-tweaks"
+EXTRA_IMAGE_FEATURES += " debug-tweaks"
 
 USER_CLASSES ?= "buildstats image-mklibs image-prelink"
 
