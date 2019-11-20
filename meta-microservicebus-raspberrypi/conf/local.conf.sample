@@ -1,4 +1,4 @@
-MACHINE = "raspberrypi3"
+MACHINE ?= "raspberrypi3"
 
 DISTRO ?= "poky"
 
@@ -10,6 +10,9 @@ DISTRO_FEATURES_append = " systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+
+# Add vitualization if support for containers is needed(iot-edge)
+DISTRO_FEATURES_append = " virtualization"
 
 PACKAGE_CLASSES ?= "package_deb"
 
