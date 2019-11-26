@@ -1,23 +1,33 @@
+# An sample config to build an RPi image supporting microServiceBus and
+# firmware update using RAUC
+
+CONF_VERSION = "1"
+
+# Default to build for RPi 3
 MACHINE ?= "raspberrypi3"
 
+# Use poky as distro
 DISTRO ?= "poky"
 
+# Create an rpi-sdimg for writing to SD-Card
 IMAGE_FSTYPES = "tar.bz2 ext4 rpi-sdimg"
 
+# Use ext4 as rootfs as that is supported by RAUC
 SDIMG_ROOTFS_TYPE = "ext4"
 
+# Set systemd as init and daemon manager
 DISTRO_FEATURES_append = " systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 
-# Add vitualization if support for containers is needed(iot-edge)
-DISTRO_FEATURES_append = " virtualization"
-
+# Debian package format for packages
 PACKAGE_CLASSES ?= "package_deb"
 
-EXTRA_IMAGE_FEATURES += " debug-tweaks"
+# Uncomment debug-tweaks below to add support for blank root password
+#EXTRA_IMAGE_FEATURES += " debug-tweaks"
 
+# Some default Yocto settings
 USER_CLASSES ?= "buildstats image-mklibs image-prelink"
 
 PATCHRESOLVE = "noop"
@@ -36,10 +46,10 @@ PACKAGECONFIG_append_pn-qemu-native = " sdl"
 
 PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 
-CONF_VERSION = "1"
-
+# Use U-Boot as bootloader to support RAUC firmware updates
 RPI_USE_U_BOOT = "1"
 
+# Set serial console
 SERIAL_CONSOLE = ""
 
 # Specify user for microservicebus-node
