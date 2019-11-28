@@ -17,8 +17,5 @@ BBLAYERS ?= " \
   ${TOPDIR}/../meta-microservicebus/meta-microservicebus-raspberrypi \
   ${TOPDIR}/../meta-raspberrypi \
   ${TOPDIR}/../meta-rauc \
-  ${TOPDIR}/../meta-rust \
-  ${TOPDIR}/../meta-virtualization \
-  ${TOPDIR}/../meta-iotedge \
   "
   
