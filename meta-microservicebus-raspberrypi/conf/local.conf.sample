@@ -64,16 +64,3 @@ MSB_HOME_DIR_PATH = "/data/home/${MSB_NODE_USER}"
 RPI_WIFI_SSID = "SSID"
 RPI_WIFI_PSK = "PASSW"
 
-# Uncomment setting below to add support for Azure IoT-Edge
-#DISTRO_FEATURES_append = " virtualization"
-
-# Workaround as IoT-Edge not support latest rust version in meta-rust
-#PREFERRED_VERSION_rust = "1.34.2"
-#PREFERRED_VERSION_rust-native = "1.34.2"
-#PREFERRED_VERSION_cargo = "1.34.2"
-#PREFERRED_VERSION_cargo-native = "1.34.2"
-#PREFERRED_VERSION_libstd-rs = "1.34.2"
-#PREFERRED_VERSION_rust-cross = "1.34.2"
-#PREFERRED_VERSION_rust-llvm = "1.34.2"
-#PREFERRED_VERSION_rust-llvm-native = "1.34.2"
-
