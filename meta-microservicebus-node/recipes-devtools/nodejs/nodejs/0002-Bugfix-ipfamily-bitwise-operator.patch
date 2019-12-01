@@ -1,0 +1,23 @@
+diff --git a/lib/dns.js b/lib/dns.js
+index 9d853cd..ddfe503 100644
+--- a/lib/dns.js
++++ b/lib/dns.js
+@@ -111,7 +111,7 @@ function lookup(hostname, options, callback) {
+     throw new TypeError('Invalid arguments: callback must be passed');
+   } else if (options !== null && typeof options === 'object') {
+     hints = options.hints >>> 0;
+-    family = options.family >>> 0;
++    family = (options.family ? options.family >>> 0 : 0);
+     all = options.all === true;
+     verbatim = options.verbatim === true;
+ 
+@@ -122,7 +122,7 @@ function lookup(hostname, options, callback) {
+       throw new TypeError('Invalid argument: hints must use valid flags');
+     }
+   } else {
+-    family = options >>> 0;
++    family = (options ? options >>> 0 : 0);
+   }
+ 
+   if (family !== 0 && family !== 4 && family !== 6)
+
