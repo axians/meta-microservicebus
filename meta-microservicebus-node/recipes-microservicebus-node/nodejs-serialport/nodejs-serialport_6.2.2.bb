@@ -478,3 +478,7 @@ LICENSE_${PN}-serialport-parser-readline-safe-buffer = "MIT"
 LICENSE_${PN}-serialport-parser-ready-safe-buffer = "MIT"
 LICENSE_${PN}-serialport-parser-regex-safe-buffer = "MIT"
 LICENSE_${PN} = "MIT"
+
+# Workaround when installing for Helix
+INSANE_SKIP_${PN}_append = " already-stripped"
+
