@@ -37,6 +37,9 @@ MSB_CREATE_HOME = "${@oe.utils.conditional('MSB_HOME_DIR_PATH', '', '-m', '-M -d
 # Create msb user
 USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
 
+# Do not own directory, sudoers.d is not created in this recipe
+DIRFILES = "1"
+
 do_install () {
 
 	# Replace microservicebus parameters
@@ -44,7 +47,7 @@ do_install () {
 
 	# Install sudoers file
 	install -d ${D}${sysconfdir}/sudoers.d/
-	install -m 0644 ${WORKDIR}/microservicebus-node-sudoers ${D}${sysconfdir}/sudoers.d/
+	install -m 0644 ${WORKDIR}/microservicebus-node-sudoers ${D}${sysconfdir}/sudoers.d/microservicebus-node-sudoers 
 }
 
 FILES_${PN} = "${sysconfdir}/sudoers.d/"
