@@ -45,7 +45,7 @@ do_install() {
 REQUIRED_DISTRO_FEATURES= "systemd"
 
 # Set root password
-COMPULAB_ROOT_PASSWD ?= compulab
+COMPULAB_ROOT_PASSWD ?= "compulab"
 
 #inherit extrausers
 #     EXTRA_USERS_PARAMS = "\

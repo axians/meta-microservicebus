@@ -9,11 +9,11 @@
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # Dynamic settings, replaced with values from Yocto variables
-MSB_HOME_DIR_PATH=@MSB_HOME_DIR_PATH@
-MSB_NODE_USER=@MSB_NODE_USER@
-MSB_NODE_GROUP=@MSB_NODE_GROUP@
-RAUC_VAR_DIR=@RAUC_VAR_DIR@
-APN=@COMPULAB_APN@
+MSB_HOME_DIR_PATH="@MSB_HOME_DIR_PATH@"
+MSB_NODE_USER="@MSB_NODE_USER@"
+MSB_NODE_GROUP="@MSB_NODE_GROUP@"
+RAUC_VAR_DIR="@RAUC_VAR_DIR@"
+APN="@COMPULAB_APN@"
 
 RESULT=0
 
