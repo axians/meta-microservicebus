@@ -1,0 +1,86 @@
+MACHINE ??= 'cl-som-imx7'
+DISTRO ?= 'fsl-imx-fb'
+PACKAGE_CLASSES = 'package_deb package_tar'
+
+# Remove comment below to add support for ex. empty root passwd
+#EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+PATCHRESOLVE = "noop"
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
+PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+CONF_VERSION = "1"
+
+DL_DIR ?= "${BSPDIR}/downloads/"
+ACCEPT_FSL_EULA = "1"
+CORE_IMAGE_EXTRA_INSTALL += " dhcp-client rng-tools  cl-uboot cl-deploy cl-camera cl-stest memtester htop iotop tmux iperf3 stress-ng  bt-start video-mode  u-boot-fw-utils  kernel-modules firmware-imx-sdma linux-firmware-wl18xx linux-firmware-wlcommon linux-firmware-ti-connectivity-license bluez5 wpa-supplicant wvdial wvdial-compulab"
+IMAGE_FEATURES += " package-management ssh-server-openssh "
+LICENSE_FLAGS_WHITELIST = "commercial"
+DISTRO_FEATURES_append = " polkit"
+PREFERRED_RPROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
+# Make it use for core-images only
+# These package cause a root image build conflict with gui images
+# CORE_IMAGE_EXTRA_INSTALL += " modemmanager networkmanager "
+
+# Users' Configurations
+
+IMAGE_INSTALL_append = " bluez5"
+IMAGE_INSTALL_append = " wpa-supplicant"
+IMAGE_INSTALL_append = " usbutils"
+IMAGE_INSTALL_append = " modemmanager wvdial"
+IMAGE_INSTALL_append = " networkmanager"
+PACKAGECONFIG_append_pn-networkmanager = " modemmanager"
+IMAGE_INSTALL_append = " base-files"
+
+# microServiceBus-node configuration
+IMAGE_INSTALL_append = " microservicebus-node"
+IMAGE_INSTALL_append = " microservicebus-node-service"
+IMAGE_INSTALL_append = " microservicebus-node-user"
+IMAGE_INSTALL_append = " packagegroup-microservicebus-build"
+
+# Specify microServiceBus parameters 
+MSB_NODE_USER ?= "msb"
+MSB_NODE_GROUP ?= "msb"
+MSB_HOME_DIR_PATH ?= ""
+MSB_USER_GROUPS ?= "tty,dialout"
+MSB_USER_UID ?= "350"
+MSB_NODE_ARG ?= ""
+MSB_NODE_WORK_DIR ?= "/usr/lib/node/microservicebus-node"
+MSB_HOME_DIR_PATH = "/data/home/${MSB_NODE_USER}"
+
+# Include microServiceBus-DAM and set parameters for integration with mSB-core
+IMAGE_INSTALL_append = " microservicebus-dam"
+IMAGE_INSTALL_append = " microservicebus-dam-service"
+MSB_USE_DAM = "true"
+MSB_USER_GROUPS_append = ",msbdam"
+
+# Install init script to handle home dir and initial modem setting
+IMAGE_INSTALL_append = " compulab-init"
+
+# RAUC
+IMAGE_INSTALL_append = " rauc"
+IMAGE_INSTALL_append = " u-boot-script-compulab"
+# Chose custom boot script for dual partitions
+IBOOTSCRIPT = "rauc-bootscr"
+
+# Set fixed size rootf to not break rauc update
+IMAGE_ROOTFS_EXTRA_SPACE = "0"
+IMAGE_ROOTFS_SIZE = "1048576"
+
+# Use custom image config with dual system partitions and data partition
+WKS_FILE = "microservicebus-uboot.wks.in"
+
+# Add kernel and device tree to rootfs image in /boot/
+IMAGE_INSTALL_append = " kernel kernel-devicetree"
+
+# Set your root password
+COMPULAB_ROOT_PASSWD = ""
