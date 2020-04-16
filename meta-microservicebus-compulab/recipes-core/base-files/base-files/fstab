@@ -1,0 +1,11 @@
+# fstab
+
+/dev/root            /                    auto       defaults              1  1
+proc                 /proc                proc       defaults              0  0
+devpts               /dev/pts             devpts     mode=0620,gid=5       0  0
+tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,stri
+tmpfs                /var/volatile        tmpfs      defaults              0  0
+
+# Common data partition for dual rootfs
+/dev/mmcblk2p4       /data                auto       defaults              0  0
+
