@@ -1,0 +1,33 @@
+This README file contains information on the contents of the meta-microservicebus-compulab layer.
+
+For information regarding the microservicebus-node agent visit https://microservicebus.com
+
+Please see the corresponding sections below for details.
+
+https://www.compulab.com/products/iot-gateways/iot-gate-imx7-nxp-i-mx-7-internet-of-things-gateway/#specs
+
+Dependencies
+============
+
+  URI: https://github.com/compulab-yokneam/meta-bsp-imx7.git 
+  branch: devel-warrior 
+
+Patches
+=======
+
+Please submit any patches via GitHub pull request on https://github.com/axians/meta-microservicebus
+
+Maintainers:  Jonas Andersson   jonaskgandersson@gmail.com
+              Mikael Håkansson  wmmihaa@hotmail.com 
+
+
+Table of Contents
+=================
+
+  I. Adding the meta-microservicebus-compulab layer to your build
+
+
+I. Adding the meta-microservicebus-compulab layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer meta-microservicebus-compulab'
