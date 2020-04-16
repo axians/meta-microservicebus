@@ -41,5 +41,5 @@ BBLAYERS += " \
 "
 
 BBLAYERS += "/home/msb/compulab-yocto/sources/meta-microservicebus/meta-microservicebus-node"
-BBLAYERS += "/home/msb/compulab-yocto/sources/meta-microservicebus-dam"
+BBLAYERS += "/home/msb/compulab-yocto/sources/meta-microservicebus/meta-microservicebus-dam"
 BBLAYERS += "/home/msb/compulab-yocto/sources/meta-rauc"
