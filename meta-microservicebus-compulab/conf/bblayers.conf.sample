@@ -30,7 +30,6 @@ BBLAYERS += "${BSPDIR}/sources/meta-openembedded/meta-python"
 BBLAYERS += "${BSPDIR}/sources/meta-openembedded/meta-filesystems"
 BBLAYERS += "${BSPDIR}/sources/meta-qt5"
 
-# Important that this layer is above meta-compulab, this to override machine conf
 BBLAYERS += "/home/msb/compulab-yocto/sources/meta-microservicebus/meta-microservicebus-compulab"
 
 BBLAYERS += " \
@@ -43,3 +42,4 @@ BBLAYERS += " \
 BBLAYERS += "/home/msb/compulab-yocto/sources/meta-microservicebus/meta-microservicebus-node"
 BBLAYERS += "/home/msb/compulab-yocto/sources/meta-microservicebus/meta-microservicebus-dam"
 BBLAYERS += "/home/msb/compulab-yocto/sources/meta-rauc"
+BBLAYERS += "/home/msb/compulab-yocto/sources/meta-virtualization"
