@@ -1,0 +1,20 @@
+[Unit]
+Description=MicroServiceBus DAM Scheduled Poller as a Service
+
+[Service]
+ExecStart=/usr/bin/node /usr/lib/node/microservicebus-dam/main.js scheduled-service
+WorkingDirectory=/usr/lib/node/microservicebus-dam
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=dam-scheduled
+User=root
+Group=msbdam
+Environment=PATH=/usr/bin:/usr/local/bin:/bin/:/usr/local/sbin:/usr/sbin:/sbin
+Environment=NODE_ENV=production
+Environment=MSB_PLATFORM=YOCTO
+Environment=DAM_SOCKET_FOLDER=/var/run/dam/
+Environment=DAM_REFRESH_INTERVAL=1800
+
+[Install]
+WantedBy=multi-user.target
