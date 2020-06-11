@@ -6,6 +6,5 @@ devpts               /dev/pts             devpts     mode=0620,gid=5       0  0
 tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,stri
 tmpfs                /var/volatile        tmpfs      defaults              0  0
 
-# Common data partition for dual rootfs
-/dev/mmcblk2p4       /data                auto       defaults,nofail       0  0
-
+# Common data partition for dual rootfs, this is added in init script to support SD-Card install
+#/dev/mmcblk2p4       /data                noauto,x-systemd.automount       defaults       0  0
