@@ -19,11 +19,12 @@ CONF_VERSION = "1"
 
 DL_DIR ?= "${BSPDIR}/downloads/"
 ACCEPT_FSL_EULA = "1"
-CORE_IMAGE_EXTRA_INSTALL += " dhcp-client rng-tools  cl-uboot cl-deploy cl-camera cl-stest memtester htop iotop tmux iperf3 stress-ng  bt-start video-mode  u-boot-fw-utils  kernel-modules firmware-imx-sdma linux-firmware-wl18xx linux-firmware-wlcommon linux-firmware-ti-connectivity-license bluez5 wpa-supplicant wvdial wvdial-compulab"
+CORE_IMAGE_EXTRA_INSTALL += " dhcp-client rng-tools  cl-uboot cl-deploy cl-camera cl-stest memtester htop iotop tmux iperf3 stress-ng  bt-start video-mode  u-boot-fw-utils  kernel-modules firmware-imx-sdma linux-firmware-wl18xx linux-firmware-wlcommon linux-firmware-ti-connectivity-license bluez5 wpa-supplicant wvdial wvdial-compulab openssl-bin i2c-tools"
 IMAGE_FEATURES += " package-management ssh-server-openssh "
 LICENSE_FLAGS_WHITELIST = "commercial"
 DISTRO_FEATURES_append = " polkit"
 PREFERRED_RPROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
+
 # Make it use for core-images only
 # These package cause a root image build conflict with gui images
 # CORE_IMAGE_EXTRA_INSTALL += " modemmanager networkmanager "
@@ -60,20 +61,29 @@ MSB_USER_GROUPS ?= "tty,dialout"
 MSB_USER_UID ?= "350"
 MSB_NODE_ARG ?= ""
 MSB_NODE_WORK_DIR ?= "/usr/lib/node/microservicebus-node"
+MSB_DEP ?= ""
 
 # Include microServiceBus-DAM and set parameters for integration with mSB-core
 IMAGE_INSTALL_append = " microservicebus-dam"
 IMAGE_INSTALL_append = " microservicebus-dam-service"
-MSB_USE_DAM = "true"
-MSB_USER_GROUPS_append = ",msbdam,docker"
+IMAGE_INSTALL_append = " microservicebus-dam-scheduled-service"
+MSB_DEP_append = " microservicebus-dam"
+MSB_USER_GROUPS_append = ",msbdam"
 
 # RAUC
 IMAGE_INSTALL_append = " rauc"
 
 # DOCKER
-DISTRO_FEATURES_append = " virtualization"
-IMAGE_INSTALL_append = " docker-ce"
-ENABLE_UART = "1"
+#DISTRO_FEATURES_append = " virtualization"
+#IMAGE_INSTALL_append = " docker-ce"
+#ENABLE_UART = "1"
+#MSB_USER_GROUPS_append = ",docker"
+#MSB_DEP_append = " docker-ce"
+
+# GPIO
+IMAGE_INSTALL_append = " gpio"
+MSB_USER_GROUPS_append = ",gpio"
+MSB_DEP_append = " gpio"
 
 # Specify home directory for msb user.
 MSB_HOME_DIR_PATH = "/data/home/${MSB_NODE_USER}"
@@ -84,4 +94,4 @@ IBOOTSCRIPT = "rauc-bootscr"
 # Add kernel and device tree to rootfs image in /boot/
 IMAGE_INSTALL_append = " kernel kernel-devicetree"
 
-COMPULAB_ROOT_PASSWD = ""
+COMPULAB_ROOT_PASSWD = "PASSWORD"
