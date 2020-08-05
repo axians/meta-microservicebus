@@ -1,0 +1,83 @@
+{
+    "abstract-socket": {
+        	"2.1.1": "243a7e6e6ff65bb9eab16a22fa90699b91e528f7"
+    },
+    "bindings": {
+        	"1.5.0": "10353c9e945334bc0511a6d90b38fbc7c9c504df"
+    },
+    "dbus-native": {
+        	"0.4.0": "2fea91da60db3073272b18735245e23ea6b84940"
+    },
+    "debug": {
+        	"3.2.6": "e83d17de16d8a7efb7717edbe5fb10135eee629b"
+    },
+    "duplexer": {
+        	"0.1.1": "ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
+    },
+    "event-stream": {
+        	"4.0.1": "4092808ec995d0dd75ea4580c1df6a74db2cde65"
+    },
+    "file-uri-to-path": {
+        	"1.0.0": "553a7b8446ff6f684359c445f1e37a05dacc33dd"
+    },
+    "follow-redirects": {
+        	"1.10.0": "01f5263aee921c6a54fb91667f08f4155ce169eb"
+    },
+    "from": {
+        	"0.1.7": "83c60afc58b9c56997007ed1a768b3ab303a44fe"
+    },
+    "hexy": {
+        	"0.2.11": "9939c25cb6f86a91302f22b8a8a72573518e25b4"
+    },
+    "long": {
+        	"4.0.0": "9a7b71cfb7d361a194ea555241c92f7468d5bf28"
+    },
+    "map-stream": {
+        	"0.0.7": "8a1f07896d82b10926bd3744a2420009f88974a8"
+    },
+    "microservicebus-dam": {
+        	"1.4.0": "3be525cd0cd1c0c9f870dcd0e89833d395199eed"
+    },
+    "minimist": {
+        	"0.0.10": "de3f98543dbf96082be48ad1a0c7cda836301dcf"
+    },
+    "ms": {
+        	"2.1.2": "d09d1f357b443f493382a8eb3ccd183872ae6009"
+    },
+    "nan": {
+        	"2.14.0": "7818f722027b2459a86f0295d434d1fc2336c52c"
+    },
+    "optimist": {
+        	"0.6.1": "da3ea74686fa21a19a111c326e90eb15a0196686"
+    },
+    "pause-stream": {
+        	"0.0.11": "fe5a34b0cbce12b5aa6a2b403ee2e73b602f1445"
+    },
+    "put": {
+        	"0.0.6": "30f5f60bd6e4389bd329e16a25386cbb2e4a00a3"
+    },
+    "safe-buffer": {
+        	"5.2.0": "b74daec49b1148f88c64b68d49b1e815c1f2f519"
+    },
+    "sax": {
+        	"1.2.4": "2816234e2378bddc4e5354fab5caa895df7100d9"
+    },
+    "split": {
+        	"1.0.1": "605bd9be303aa59fb35f9229fbea0ddec9ea07d9"
+    },
+    "stream-combiner": {
+        	"0.2.2": "aec8cbac177b56b6f4fa479ced8c1912cee52858"
+    },
+    "through": {
+        	"2.3.8": "0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
+    },
+    "wordwrap": {
+        	"0.0.3": "a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
+    },
+    "xml2js": {
+        	"0.4.23": "a0c69516752421eb2ac758ee4d4ccf58843eac66"
+    },
+    "xmlbuilder": {
+        	"11.0.1": "be9bae1c8a046e76b31127726347d0ad7002beb3"
+    }
+}

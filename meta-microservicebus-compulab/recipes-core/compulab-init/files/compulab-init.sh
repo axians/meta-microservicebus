@@ -17,6 +17,24 @@ APN="@COMPULAB_APN@"
 
 RESULT=0
 
+if [[ $(findmnt / -n -o SOURCE) = /dev/mmcblk0p2 ]] ; then
+  # Boot from SD
+  echo ""
+  echo "******************************************************"
+  echo "Boot from SD > /dev/mmcblk0p4 is mounted to /data"
+  echo "******************************************************"
+  echo ""
+  mount /dev/mmcblk0p4 /data
+else
+  # Normal boot
+  echo ""
+  echo "******************************************************"
+  echo "NORMAL BOOT > /dev/mmcblk2p4 is mounted to /data"
+  echo "******************************************************"
+  echo ""
+  mount /dev/mmcblk2p4 /data
+fi
+
 # Check if home dir is created
 if [ -d ${MSB_HOME_DIR_PATH} ]; then
   # Set permissions on home dir to msb user
@@ -37,8 +55,7 @@ else
     echo "Home dir ready" | systemd-cat -p info -t "${me}"
     systemd-notify --status="Home dir ready"
     systemd-notify --ready
-  fi
-  
+  fi  
 fi
 
 # Check if rauc dir is creted
@@ -67,7 +84,18 @@ if [ $? -ne 0 ]; then
   fi
 fi
 
+# Set hostname to serial number
+/usr/sbin/dmidecode -s system-serial-number > /etc/hostname
+
 ##nmcli con add type gsm ifname cdc-wdm0 con-name GSMMSB apn ${APN};nmcli con up GSMMSB;echo "Connection created."|| RESULT=4
+
+ttymcv4Config="4:0:4bd:0:3:1c:7f:15:1:0:1:0:11:13:1a:0:12:f:17:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0"
+stty -F /dev/ttymxc4 ${ttymcv4Config}
+
+##Save ttyUSB0 configuration
+#tty -F /dev/ttyUSB0 -g > /opt/ttyusb.conf 
+# Apply to the  ttymxc4
+#tty -F /dev/ttymxc4 `cat /opt/ttyusb.conf`
 
 exit $RESULT
 

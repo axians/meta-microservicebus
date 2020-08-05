@@ -13,7 +13,7 @@ S = "${WORKDIR}/npmpkg"
 # Workaround to fix qa errors in test code
 INSANE_SKIP_${PN}-put = "arch"
 
-RDEPENDS_${PN} += " dmidecode sudo bash"
+RDEPENDS_${PN} += " sudo bash"
 
 # Add msbdam user group
 inherit useradd
