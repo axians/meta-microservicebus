@@ -1,5 +1,6 @@
 #!/bin/sh
 
+if [[ $(findmnt / -n -o SOURCE) == /dev/mmcblk0p2 ]] ; then
 echo *******************************************************************
 echo *                    AUTO INSTALLED TRIGGERED                     *
 echo *                        INSTALLING IMAGE                         *
@@ -13,3 +14,4 @@ echo *******************************************************************
 echo *                     INSTALLATION COMPLETE                       *
 echo *                   remove SD-card and reboot                     *
 echo *******************************************************************
+fi

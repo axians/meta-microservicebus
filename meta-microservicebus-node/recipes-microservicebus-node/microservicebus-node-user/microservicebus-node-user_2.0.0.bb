@@ -19,7 +19,7 @@ MSB_USER_GROUPS ?= "tty,dialout"
 MSB_USER_UID ?= "350"
 
 # Conditional dependencies on microservicebus-dam
-MSB_USE_DAM ?= "false"
+MSB_DEP ?= ""
 
 S = "${WORKDIR}"
 
@@ -53,10 +53,6 @@ FILES_${PN} = "${sysconfdir}/sudoers.d/"
 # debugsources.list: No such file or directory:
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-# If microservicebus-dam is used MSB_USER_GROUPS need to be appended with microservicebus-dams 
-# user group to get right permissions, to be able to use microservicebus-dams group in recipe
-# it need to be dependent on it.
-# In config set: MSB_USE_DAM = "true" and MSB_USER_GROUPS_append = ",msbdam"
-DEPENDS += " \
-	${@bb.utils.contains('MSB_USE_DAM', 'true', 'microservicebus-dam', '',d)} \
-	"
+# If dependant on other recepies or groups...
+# In config set: MSB_DEP = "microservicebus-dam docker-ce gpio"
+DEPENDS += " ${MSB_DEP}"
