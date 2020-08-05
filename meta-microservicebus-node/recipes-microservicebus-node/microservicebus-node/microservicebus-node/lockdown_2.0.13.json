@@ -1,6 +1,6 @@
 {
     "ajv": {
-        "6.10.0": "90d0d54439da587cd7e843bfb7045f50bd22bdf1"
+        "6.12.3": "18c5af38a111ddeb4f2697bd78d68abc1cabd706"
     },
     "app-module-path": {
         "2.2.0": "641aa55dfb7d6a6f0a8141c4b9c0aa50b6c24dd5"
@@ -13,14 +13,14 @@
     },
     "async": {
         "1.5.2": "ec6a61ae56480c0c3cb241c95618e20892f9672a",
-        "2.6.0": "61a29abb6fcc026fea77e56d1c6ec53a795951f4",
-        "2.6.2": "18330ea7e6e313887f5d2f2a904bac6fe4dd5381"
+        "3.1.0": "42b3b12ae1b74927b5217d8c0016baaf62463772",
+        "3.2.0": "b3a2685c5ebb641d3de02d161002c60fc9f85720"
     },
     "asynckit": {
         "0.4.0": "c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
     },
     "aws4": {
-        "1.8.0": "f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
+        "1.10.0": "a17b3a8ea811060e74d47d306122400ad4497ae2"
     },
     "aws-sign2": {
         "0.7.0": "b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -35,13 +35,13 @@
         "0.12.0": "1b681c21ff84033c826543090689420d187151dc"
     },
     "chownr": {
-        "1.1.1": "54726b8b8fff4df053c42187e801fb4412df1494"
+        "1.1.4": "6fc9d7b42d32a583596337666e7d08084da2cc6b"
     },
     "colors": {
         "1.1.2": "168a4701756b6a7f51a12ce0c97bfa28c084ed63"
     },
     "combined-stream": {
-        "1.0.7": "2d1d24317afb8abe95d6d2c0b07b57813539d828"
+        "1.0.8": "c3d45a8b34fd730631a110a8a2520682b31d5a7f"
     },
     "commander": {
         "2.9.0": "9c99094176e12240cb22d6c5146098400fe0f7d4"
@@ -84,10 +84,10 @@
         "1.4.0": "e2689f8f356fad62cca65a3a91c5df5f9551692f"
     },
     "fast-deep-equal": {
-        "2.0.1": "7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
+        "3.1.3": "3a7d56b559d6cbc3eb512325244e619a65c6c525"
     },
     "fast-json-stable-stringify": {
-        "2.0.0": "d5142c0caee6b1189f87d3a76111064f86c8bbf2"
+        "2.1.0": "874bf69c6f404c2b5d99c481341399fd55892633"
     },
     "forever-agent": {
         "0.6.1": "fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
@@ -96,7 +96,7 @@
         "2.3.3": "dcce52c05f644f298c6a7ab936bd724ceffbf3a6"
     },
     "fs-minipass": {
-        "1.2.5": "06c277218454ec288df77ada54a03b8702aacb9d"
+        "2.1.0": "7f5036fdbf12c63c169190cbe4199c852271f9fb"
     },
     "getpass": {
         "0.1.7": "5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
@@ -111,7 +111,7 @@
         "2.0.0": "a94c2224ebcac04782a0d9035521f24735b7ec92"
     },
     "har-validator": {
-        "5.1.3": "1ef89ebd3e4996557675eed9893110dc350fa080"
+        "5.1.5": "1f0803b9f8cb20c0fa13822df1ecddb36bde1efd"
     },
     "http-signature": {
         "1.2.0": "9aecd925114772f3d95b65a60abb8f7c18fbace1"
@@ -120,7 +120,7 @@
         "0.4.24": "2022b4b25fbddc21d2f524974a474aafe733908b"
     },
     "inherits": {
-        "2.0.3": "633c2c83e3da42a502f52466022480f4208261de"
+        "2.0.4": "0fa2c64f932917c3433a0ded55363aae37416b7c"
     },
     "ini": {
         "1.3.5": "eee25f56db1c9ec6085e0c22778083f596abf927"
@@ -135,7 +135,7 @@
         "1.0.0": "1d03dded53bd8db0f30c26e4f95d36fc7c87dc24"
     },
     "is-retry-allowed": {
-        "1.1.0": "11a060568b67339444033d0125a61a20d564fb34"
+        "1.2.0": "d778488bd0a4666a3be8a1482b9f2baafedea8b4"
     },
     "isstream": {
         "0.1.2": "47e63f7af55afa6f92e1500e690eb8b8529c099a"
@@ -161,33 +161,30 @@
     "jsprim": {
         "1.4.1": "313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
     },
-    "lodash": {
-        "4.17.11": "b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-    },
     "lowercase-keys": {
         "1.0.1": "6f9e30b47084d971a7c820ff15a6c5167b74c26f"
     },
     "microservicebus-node": {
-        "2.0.3": "ad456bfa628e80fc126e00e39423d49a38f685fc"
+        "2.0.13": "1f43e2b1804a4071121ea945049e331f65a0f868"
     },
     "mime-db": {
-        "1.38.0": "1a2aab16da9eb167b49c6e4df2d9c68d63d8e2ad"
+        "1.44.0": "fa11c5eb0aca1334b4233cb4d52f10c5a6272f92"
     },
     "mime-types": {
-        "2.1.22": "fe6b355a190926ab7698c9a0556a11199b2199bd"
+        "2.1.27": "47949f98e279ea53119f5722e0f34e529bec009f"
     },
     "minimist": {
-        "0.0.8": "857fcabfc3397d2625b8228262e86aa7a011b05d",
-        "1.2.0": "a35008b20f41383eec1fb914f4cd5df79a264284"
+        "1.2.0": "a35008b20f41383eec1fb914f4cd5df79a264284",
+        "1.2.5": "67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
     },
     "minipass": {
-        "2.3.5": "cacebe492022497f656b0f0f51e2682a9ed2d848"
+        "3.1.3": "7d42ff1f39635482e15f9cdb53184deebd5815fd"
     },
     "minizlib": {
-        "1.2.1": "dd27ea6136243c7c880684e8672bb3a45fd9b614"
+        "2.1.0": "fd52c645301ef09a63a2c209697c294c6ce02cf3"
     },
     "mkdirp": {
-        "0.5.1": "30057438eac6cf7f8c4767f38648d6697d75c903"
+        "1.0.4": "3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
     },
     "ms": {
         "2.0.0": "5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -226,10 +223,10 @@
         "1.0.4": "d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
     },
     "process-nextick-args": {
-        "2.0.0": "a37d732f4271b4ab1ad070d35508e8290788ffaa"
+        "2.0.1": "7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
     },
     "psl": {
-        "1.1.31": "e9aa86d0101b5b105cbe93ac6b784cd547276184"
+        "1.8.0": "9326f8bcfb013adcc005fdff056acce020e51c24"
     },
     "punycode": {
         "1.4.1": "c0d5a63b2718800ad8e1eb0fa5269c84dd41845e",
@@ -242,7 +239,7 @@
         "1.2.8": "cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
     },
     "readable-stream": {
-        "2.3.6": "b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
+        "2.3.7": "1eca1cf711aef814c04f62252a36a62f6cb23b57"
     },
     "read-all-stream": {
         "3.1.0": "35c3e177f2078ef789ee4bfafa4373074eaef4fa"
@@ -256,11 +253,10 @@
     "require-reload": {
         "0.2.2": "29a7591846caf91b6e8a3cda991683f95f8d7d42"
     },
-    "safe-buffer": {
-        "5.1.2": "991ec69d296e0313747d59bdfd2b745c35f8828d"
-    },
     "safer-buffer": {
-        "2.1.2": "44fa161b0187b9549dd84bb91802f9bd8385cd6a"
+        "2.1.2": "44fa161b0187b9549dd84bb91802f9bd8385cd6a",
+        "5.1.2": "991ec69d296e0313747d59bdfd2b745c35f8828d",
+        "5.2.1": "1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
     },
     "sshpk": {
         "1.16.1": "fb661c0bef29b39db40769ee39fa70093d6f6877"
@@ -272,7 +268,7 @@
         "2.0.1": "3c531942e908c2697c0ec344858c286c7ca0a60a"
     },
     "tar": {
-        "4.4.1": "b25d5a8470c976fd7a9a8a350f42c59e9fa81749"
+        "6.0.1": "7b3bd6c313cb6e0153770108f8d70ac298607efa"
     },
     "timed-out": {
         "3.1.3": "95860bfcc5c76c277f8f8326fd0f5b2e20eba217"
@@ -299,7 +295,8 @@
         "1.0.2": "450d4dc9fa70de732762fbd2d4a28981419a0ccf"
     },
     "uuid": {
-        "3.3.2": "1b4af4955eb3077c501c23872fc6513811587131"
+        "3.3.2": "1b4af4955eb3077c501c23872fc6513811587131",
+        "3.4.0": "b23e4358afa8a202fe7a100af1f5f883f02007ee"
     },
     "verror": {
         "1.10.0": "3a105ca17053af55d6e270c1f8288682e18da400"
@@ -308,6 +305,6 @@
         "0.1.0": "78b41ab11d154cb812819e1291674dad55d8e1d7"
     },
     "yallist": {
-        "3.0.3": "b4b049e314be545e3ce802236d6cd22cd91c3de9"
+        "4.0.0": "9bb92790d9c0effec63be73519e11a35019a3a72"
     }
-}
+}    
