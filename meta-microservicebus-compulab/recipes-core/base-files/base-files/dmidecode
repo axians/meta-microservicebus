@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ "$1" != "-s" ] || [ "$2" != "system-serial-number" ]; then
+        echo "NOT IMPLEMENTED" >&2
+        exit 1
+fi
+cat /proc/cpuinfo | grep Serial | awk -F': ' '{print $2}' && exit 0
+# in case of problem, e.g. i2cget not installed, exit with err rc
+exit 2
