@@ -37,6 +37,9 @@ MSB_CREATE_HOME = "${@oe.utils.conditional('MSB_HOME_DIR_PATH', '', '-m', '-M -d
 # Create msb user
 USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
 
+# We don't want to own parent dir
+DIRFILES = "1"
+
 do_install () {
 
 	# Replace microservicebus parameters
