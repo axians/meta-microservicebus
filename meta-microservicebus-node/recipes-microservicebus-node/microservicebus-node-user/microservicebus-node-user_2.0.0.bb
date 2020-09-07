@@ -18,6 +18,10 @@ MSB_USER_GROUPS ?= "tty,dialout"
 # Specify users uid
 MSB_USER_UID ?= "350"
 
+MSB_ENABLE_SU ?= "TRUE"
+MSB_SU_NAME ?= "superuser"
+MSB_SU_PASSWORD ?= "superuser1234!"
+
 # Conditional dependencies on microservicebus-dam
 MSB_DEP ?= ""
 
@@ -34,17 +38,23 @@ USERADD_PACKAGES = "${PN}"
 # point the users home directory to the custom directory
 MSB_CREATE_HOME = "${@oe.utils.conditional('MSB_HOME_DIR_PATH', '', '-m', '-M -d ' + d.getVar('MSB_HOME_DIR_PATH'), d)}"
 
+# Create msb- and optionaly superuser
+#USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
+
+#Append MSB_CREATE_SU:
+MSB_CREATE_SU = "${@oe.utils.conditional('MSB_ENABLE_SU', 'TRUE', ';-u 360 -d /home/' + d.getVar('MSB_SU_NAME') + ' -r -m -s /bin/bash -p \''  + d.getVar('MSB_SU_PASSWORD') + '\' ' + d.getVar('MSB_SU_NAME') + '', '', d)}"
+
 # Create msb user
-USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
+USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER} ${MSB_CREATE_SU}"
 
 do_install () {
-
 	# Replace microservicebus parameters
 	sed -i -e 's:@MSB_NODE_GROUP@:${MSB_NODE_GROUP}:g' ${WORKDIR}/microservicebus-node-sudoers
 
 	# Install sudoers file
 	install -d ${D}${sysconfdir}/sudoers.d/
 	install -m 0644 ${WORKDIR}/microservicebus-node-sudoers ${D}${sysconfdir}/sudoers.d/
+#	passwd -l ${MSB_NODE_USER}
 }
 
 FILES_${PN} = "${sysconfdir}/sudoers.d/"
