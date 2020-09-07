@@ -12,7 +12,7 @@ IoT Device Management for: Microsoft Azure, Amazon AWS and IBM Watson. microServ
 microServiceBus Device Access Management is responsible for managing remote users and access to devices
 ### meta-microservicebus-user
 Recipe handling service users and privilages
-
+<hr/>
 <img src="./docs/img/platform-level.png">
 
 ## Platform level
@@ -26,7 +26,7 @@ Node.js recipe
 ### meta-rauc
 RAUC is a lightweight update client that runs on your Embedded Linux device and reliably controls the procedure of updating your device with a new firmware revision. RAUC is also the tool on your host system that lets you create, inspect and modify update artifacts for your device.
 
-
+<hr/>
 <img src="./docs/img/application-level.png">
 
 ## Application level
