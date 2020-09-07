@@ -1,4 +1,0 @@
-## microServiceBus user group is allowed to execute reboot
-
-%@MSB_NODE_GROUP@ ALL=NOPASSWD: /sbin/reboot
-%@MSB_NODE_GROUP@ ALL=NOPASSWD: /bin/journalctl
