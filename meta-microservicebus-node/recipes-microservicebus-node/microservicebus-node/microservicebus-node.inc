@@ -17,6 +17,7 @@ MSB_NODE_USER ?= "msb"
 do_install_append(){
     # Change owner of msb-node to set user, needed for msb-core install
 	chown -R ${MSB_NODE_USER} ${D}${libdir}/node/microservicebus-node/
+	chown -R ${MSB_NODE_USER} ${D}${nonarch_libdir}/node/microservicebus-node/
 }
 
 # Must be set after inherit npm since that itself sets S
