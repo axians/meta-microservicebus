@@ -26,7 +26,8 @@ GROUPADD_PARAM_${PN} = "-g 800 msbdam"
 # set ownership + sticky-bit
 do_install_append () {
   install -d -o root -g msbdam ${D}/run/dam
-  rm -Rf ${D}/usr/lib/node/microservicebus-dam/{.eslintrc.js,logo.png,microservicebus-dam-*.tgz,snap}
+  rm -Rf ${NPM_INSTALLDIR}/{.eslintrc.js,logo.png,microservicebus-dam-*.tgz,snap}
+  chown root:root ${D}/usr/lib/node/microservicebus-dam -R
 }
 
 FILES_${PN} += "/run/dam"
