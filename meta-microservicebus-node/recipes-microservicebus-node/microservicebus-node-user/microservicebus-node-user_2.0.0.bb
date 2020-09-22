@@ -42,10 +42,11 @@ MSB_CREATE_HOME = "${@oe.utils.conditional('MSB_HOME_DIR_PATH', '', '-m', '-M -d
 #USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
 
 #Append MSB_CREATE_SU:
-MSB_CREATE_SU = "${@oe.utils.conditional('MSB_ENABLE_SU', 'TRUE', ';-u 360 -d /home/' + d.getVar('MSB_SU_NAME') + ' -r -m -s /bin/bash -p \''  + d.getVar('MSB_SU_PASSWORD') + '\' ' + d.getVar('MSB_SU_NAME') + '', '', d)}"
-
+MSB_CREATE_SU = "${@oe.utils.conditional('MSB_ENABLE_SU', 'TRUE', ';-u 360 -d /home/' + d.getVar('MSB_SU_NAME') + ' -r -m -s /bin/bash -p $(openssl passwd ' + d.getVar('MSB_SU_PASSWORD') + ') ' + d.getVar('MSB_SU_NAME') + '', '', d)}"
+#MSB_CREATE_SU = ""
 # Create msb user
 USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER} ${MSB_CREATE_SU}"
+
 
 do_install () {
 	# Replace microservicebus parameters
