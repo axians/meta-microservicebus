@@ -5,7 +5,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 # Sudoers file for microservicebus user group
-SRC_URI += "file://microservicebus-node-sudoers"
+SRC_URI += "file://microservicebus-node-sudoers \
+	    file://superuser"
+		
 
 # Name of user for microServicebus
 MSB_NODE_USER ?= "msb"
@@ -26,7 +28,7 @@ MSB_SU_PASSWORD ?= "superuser1234!"
 MSB_DEP ?= ""
 
 S = "${WORKDIR}"
-
+DEPENDS += "openssl-native"
 EXCLUDE_FROM_WORLD = "1"
 
 inherit useradd
@@ -55,7 +57,11 @@ do_install () {
 	# Install sudoers file
 	install -d ${D}${sysconfdir}/sudoers.d/
 	install -m 0644 ${WORKDIR}/microservicebus-node-sudoers ${D}${sysconfdir}/sudoers.d/
-#	passwd -l ${MSB_NODE_USER}
+	
+	# Install msbsu file
+	sed -i -e 's:@MSB_SU_NAME@:${MSB_SU_NAME}:g' ${WORKDIR}/superuser
+	install -m 0644 ${WORKDIR}/superuser ${D}${sysconfdir}/sudoers.d/
+
 }
 
 FILES_${PN} = "${sysconfdir}/sudoers.d/"
