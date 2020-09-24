@@ -12,12 +12,12 @@ SRC_URI = "npm://registry.npmjs.org;name=microservicebus-node;version=${PV}"
 inherit npm
 
 # Name of user for microServicebus
-MSB_NODE_USER ?= "msb"
+MSB_USER_ID ?= "350"
 
 do_install_append(){
     # Change owner of msb-node to set user, needed for msb-core install
-	chown -R ${MSB_NODE_USER} ${D}${libdir}/node/microservicebus-node/
-	chown -R ${MSB_NODE_USER} ${D}${nonarch_libdir}/node/microservicebus-node/
+    chown -f -R ${MSB_USER_ID}:${MSB_USER_ID} ${D}${libdir}/node/microservicebus-node/
+    chown -f -R ${MSB_USER_ID}:${MSB_USER_ID} ${D}${nonarch_libdir}/node_modules/microservicebus-node/
 }
 
 # Must be set after inherit npm since that itself sets S

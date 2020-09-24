@@ -1,0 +1,14 @@
+diff --git a/package.json b/package.json
+index e95fa79..e7d5e45 100644
+--- a/package.json
++++ b/package.json
+@@ -37,7 +37,7 @@
+     "supertest": "4.0.2"
+   },
+   "engines": {
+-    "node": ">=0.12.0 <10.1.1"
++    "node": ">=0.12.0 =<14.12.0"
+   },
+   "keywords": [
+     "IoT",
+
