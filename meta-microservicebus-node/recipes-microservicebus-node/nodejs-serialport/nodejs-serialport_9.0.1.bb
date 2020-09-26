@@ -9,7 +9,8 @@ SUMMARY = "Node.js package to access serial ports. Linux, OSX and Windows. Welco
 # instead of &. If there is any doubt, check the accompanying documentation
 # to determine which situation is applicable.
 LICENSE = "BSD-2-Clause & MIT & Apache-2.0 & WTFPL & ISC"
-LIC_FILES_CHKSUM = "file://node_modules/semver/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
+LIC_FILES_CHKSUM = " \
+		file://node_modules/semver/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
 		file://node_modules/buffer/LICENSE;md5=e49e579dbcc02cf1f699deec85fd96f0 \
 		file://node_modules/mkdirp-classic/LICENSE;md5=9d0b3b7764a2c71b14f36865c1d30feb \
 		file://node_modules/inherits/LICENSE;md5=5b2ef2247af6d355ae9d9f988092d470 \
@@ -73,13 +74,21 @@ LIC_FILES_CHKSUM = "file://node_modules/semver/LICENSE;md5=82703a69f6d7411dde679
 		file://node_modules/simple-concat/LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
 
 SRC_URI = "npm://registry.npmjs.org;name=serialport;version=${PV}"
+INSANE_SKIP_nodejs-serialport = "already-stripped"
 
-# NPM_SHRINKWRAP := "${THISDIR}/${PN}/npm-shrinkwrap.json"
+NPM_SHRINKWRAP := "${THISDIR}/${PN}/npm-shrinkwrap.json"
 # NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown.json"
 
 NPMPN = "serialport"
 
+# Name of user for microServicebus
+MSB_USER_UID ?= "350"
 
+do_install_append(){
+  set +e
+  chown -f -R ${MSB_USER_ID}:${MSB_USER_ID} ${D}${libdir}/node_modules/${NPMPN}
+  chown -f -R ${MSB_USER_ID}:${MSB_USER_ID} ${D}${nonarch_libdir}/node_modules/${NPMPN}
+}
 
 inherit npm
 
@@ -87,6 +96,7 @@ NPM_INSTALLDIR = "${nonarch_libdir}/node_modules/${NPMPN}"
 
 # Must be set after inherit npm since that itself sets S
 S = "${WORKDIR}/npmpkg"
+
 LICENSE_${PN}-bindings = "MIT"
 LICENSE_${PN}-commander = "MIT"
 LICENSE_${PN}-debug = "MIT"
