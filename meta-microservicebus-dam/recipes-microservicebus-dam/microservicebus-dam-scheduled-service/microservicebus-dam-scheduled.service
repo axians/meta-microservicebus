@@ -15,6 +15,7 @@ Environment=NODE_ENV=production
 Environment=MSB_PLATFORM=YOCTO
 Environment=DAM_SOCKET_FOLDER=/var/run/dam/
 Environment=DAM_REFRESH_INTERVAL=1800
+Environment=DAM_MSB_GRANTS_BASE_URI=https://vattenfall.microservicebus.com
 
 [Install]
 WantedBy=multi-user.target

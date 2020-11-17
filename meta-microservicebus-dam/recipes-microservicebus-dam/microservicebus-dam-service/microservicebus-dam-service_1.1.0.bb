@@ -15,12 +15,15 @@ SYSTEMD_SERVICE_${PN} = " microservicebus-dam.service"
 
 FILES_${PN} += "${systemd_system_unitdir}/microservicebus-dam.service"
 
+#Dynamic parameters for service file, set default values
+MSB_NODE_HOST ?= "microservicebus.com"
+
 #bitbake task
 #created a directory /home/root for target install the script
 do_install() {
-
-             install -d ${D}${systemd_system_unitdir}
-             install -m 0644 ${THISDIR}/microservicebus-dam.service ${D}${systemd_system_unitdir}
+	sed -i -e 's:@MSB_NODE_HOST@:${MSB_NODE_HOST}:g' ${THISDIR}/microservicebus-dam.service
+	install -d ${D}${systemd_system_unitdir}
+	install -m 0644 ${THISDIR}/microservicebus-dam.service ${D}${systemd_system_unitdir}
 }
 
 REQUIRED_DISTRO_FEATURES= "systemd"
