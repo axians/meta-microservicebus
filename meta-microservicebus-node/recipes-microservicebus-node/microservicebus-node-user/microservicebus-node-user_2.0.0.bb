@@ -5,7 +5,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 # Sudoers file for microservicebus user group
-SRC_URI += "file://microservicebus-node-sudoers"
+SRC_URI += "file://microservicebus-node-sudoers \
+	    file://superuser"
+
 
 # Name of user for microServicebus
 MSB_NODE_USER ?= "msb"
@@ -18,11 +20,15 @@ MSB_USER_GROUPS ?= "tty,dialout"
 # Specify users uid
 MSB_USER_UID ?= "350"
 
+MSB_ENABLE_SU ?= "FALSE"
+MSB_SU_NAME ?= "superuser"
+MSB_SU_PASSWORD ?= "superuser1234!"
+
 # Conditional dependencies on microservicebus-dam
 MSB_DEP ?= ""
 
 S = "${WORKDIR}"
-
+DEPENDS += "openssl-native"
 EXCLUDE_FROM_WORLD = "1"
 
 inherit useradd
@@ -37,6 +43,12 @@ MSB_CREATE_HOME = "${@oe.utils.conditional('MSB_HOME_DIR_PATH', '', '-m', '-M -d
 # Create msb user
 USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER}"
 
+#Append MSB_CREATE_SU:
+MSB_CREATE_SU = "${@oe.utils.conditional('MSB_ENABLE_SU', 'TRUE', ';-u 360 -d /home/' + d.getVar('MSB_SU_NAME') + ' -r -m -s /bin/bash -p $(openssl passwd ' + d.getVar('MSB_SU_PASSWORD') + ') ' + d.getVar('MSB_SU_NAME') + '', '', d)}"
+#MSB_CREATE_SU = ""
+# Create msb user
+USERADD_PARAM_${PN} = "-u ${MSB_USER_UID} -c microServiceBus ${MSB_CREATE_HOME} -U -G ${MSB_USER_GROUPS} -r -s /bin/nologin ${MSB_NODE_USER} ${MSB_CREATE_SU}"
+
 # We don't want to own parent dir
 DIRFILES = "1"
 
@@ -48,6 +60,10 @@ do_install () {
 	# Install sudoers file
 	install -d ${D}${sysconfdir}/sudoers.d/
 	install -m 0644 ${WORKDIR}/microservicebus-node-sudoers ${D}${sysconfdir}/sudoers.d/
+
+	# Install msbsu file
+	sed -i -e 's:@MSB_SU_NAME@:${MSB_SU_NAME}:g' ${WORKDIR}/superuser
+	install -m 0644 ${WORKDIR}/superuser ${D}${sysconfdir}/sudoers.d/
 }
 
 FILES_${PN} = "${sysconfdir}/sudoers.d/"
