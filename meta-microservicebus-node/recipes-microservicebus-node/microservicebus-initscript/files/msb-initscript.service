@@ -1,0 +1,16 @@
+[Unit]
+Description=microServiceBus init plattform
+DefaultDependencies=no
+After=local-fs.target
+Before=rauc.service
+Before=network-pre.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/msb-initscript.sh
+Restart=on-failure
+RestartSec=5s
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
