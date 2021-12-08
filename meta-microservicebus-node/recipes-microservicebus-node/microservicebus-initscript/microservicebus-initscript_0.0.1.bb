@@ -48,5 +48,5 @@ do_install() {
 }
 
 REQUIRED_DISTRO_FEATURES= "systemd"
-RDEPENDS_${PN} += " bash"
+RDEPENDS_${PN} += " bash iptables"
 
