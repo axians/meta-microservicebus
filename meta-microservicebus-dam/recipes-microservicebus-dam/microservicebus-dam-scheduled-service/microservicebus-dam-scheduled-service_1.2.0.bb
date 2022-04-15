@@ -15,7 +15,7 @@ SYSTEMD_SERVICE_${PN} = " microservicebus-dam-scheduled.service"
 FILES_${PN} += "${systemd_system_unitdir}/microservicebus-dam-scheduled.service"
 
 #Dynamic parameters for service file, set default values
-MSB_NODE_HOST ?= "microservicebus.com"
+MSB_NODE_HOST ??= "microservicebus.com"
 
 do_install() {
 

@@ -5,23 +5,29 @@ Please see the corresponding sections below for details.
 Dependencies
 ============
 
-  URI: git://git.openembedded.org/meta-openembedded
-  layers: meta-oe
-  branch: master
+  URI: <first dependency>
+  branch: <branch name>
+
+  URI: <second dependency>
+  branch: <branch name>
+
+  .
+  .
+  .
 
 Patches
 =======
 
-Please submit any patches via GitHub pull request on https://github.com/axians/meta-microservicebus
+Please submit any patches against the meta-microservicebus-dam layer to the xxxx mailing list (xxxx@zzzz.org)
+and cc: the maintainer:
 
-Maintainers:  Jonas Andersson   jonaskgandersson@gmail.com
-              Mikael Håkansson  wmmihaa@hotmail.com 
+Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
 
 Table of Contents
 =================
 
   I. Adding the meta-microservicebus-dam layer to your build
- II. Add microServicebus-DAM support with microServiceBus-node 
+ II. Misc
 
 
 I. Adding the meta-microservicebus-dam layer to your build
@@ -29,14 +35,7 @@ I. Adding the meta-microservicebus-dam layer to your build
 
 Run 'bitbake-layers add-layer meta-microservicebus-dam'
 
-II. Add microServicebus-DAM support with microServiceBus-node 
-=============================================================
-To make microServiceBus-node able to communicate with microServiceBus-DAM
-MSB_USER_GROUPS need to be appended with microServiceBus-DAMs user group.
+II. Misc
+========
 
-In config set: MSB_USE_DAM = "true" and MSB_USER_GROUPS_append = ",msbdam"
-
-MSB_USE_DAM is an flag to make microservicebus-node recipe dependent on
-microservicebus-dam, this to get access to DAMs users. microservicebus-node
-has to be rebuild after adding microservicebus-dam.
-
+--- replace with specific information about the meta-microservicebus-dam layer ---

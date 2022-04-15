@@ -1,4 +1,14 @@
 ## microServiceBus user group is allowed to execute reboot
 
 %@MSB_NODE_GROUP@ ALL=NOPASSWD: /sbin/reboot
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /bin/systemctl
 %@MSB_NODE_GROUP@ ALL=NOPASSWD: /bin/journalctl
+
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /bin/bash
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /usr/sbin/networksetup
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /sbin/ifconfig
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /usr/bin/hostnamectl
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /usr/bin/wg
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /usr/bin/wg-quick
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /usr/bin/docker
+%@MSB_NODE_GROUP@ ALL=NOPASSWD: /usr/bin/docker-compose
