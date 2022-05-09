@@ -23,6 +23,7 @@ MSB_NODE_USER ?= "msb"
 MSB_NODE_GROUP ?= "msb"
 MSB_NODE_HOST ?= "microservicebus.com"
 MSB_DAM_SOCKETPATH ?= "/var/run/dam"
+MSB_NODE_EXTRA_CA_CERTS ?= ""
 
 do_install() {
              
@@ -33,6 +34,7 @@ do_install() {
     sed -i -e 's:@MSB_NODE_GROUP@:${MSB_NODE_GROUP}:g' ${WORKDIR}/microservicebus-node.service
     sed -i -e 's:@MSB_NODE_HOST@:${MSB_NODE_HOST}:g' ${WORKDIR}/microservicebus-node.service
     sed -i -e 's:@MSB_DAM_SOCKETPATH@:${MSB_DAM_SOCKETPATH}:g' ${WORKDIR}/microservicebus-node.service
+    sed -i -e 's:@MSB_NODE_EXTRA_CA_CERTS@:${MSB_NODE_EXTRA_CA_CERTS}:g' ${WORKDIR}/microservicebus-node.service
 
     #Install service file
     install -d ${D}${systemd_system_unitdir}
@@ -44,3 +46,4 @@ do_install() {
 }
 
 REQUIRED_DISTRO_FEATURES= "systemd"
+
