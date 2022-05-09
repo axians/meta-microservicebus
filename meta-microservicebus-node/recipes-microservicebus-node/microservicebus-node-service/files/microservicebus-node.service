@@ -15,7 +15,7 @@ Environment=NODE_ENV=production
 Environment=MSB_PLATFORM=YOCTO
 Environment=MSB_HOST=@MSB_NODE_HOST@
 Environment=DAM_SOCKETPATH=@MSB_DAM_SOCKETPATH@
-
+Environment=NODE_EXTRA_CA_CERTS=@MSB_NODE_EXTRA_CA_CERTS@
 
 [Install]
 WantedBy=multi-user.target
