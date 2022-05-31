@@ -33,7 +33,7 @@ inherit npm
 
 # Must be set after inherit npm since that itself sets S
 S = "${WORKDIR}/npmpkg"
-LICENSE_${PN}-nan = "MIT"
-LICENSE_${PN} = "MIT"
+LICENSE:${PN}-nan = "MIT"
+LICENSE:${PN} = "MIT"
 
 

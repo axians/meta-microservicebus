@@ -10,9 +10,9 @@ S = "${WORKDIR}"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE_${PN} = " microservicebus-dam.service"
+SYSTEMD_SERVICE:${PN} = " microservicebus-dam.service"
 
-FILES_${PN} += "${systemd_system_unitdir}/microservicebus-dam.service"
+FILES:${PN} += "${systemd_system_unitdir}/microservicebus-dam.service"
 
 #Dynamic parameters for service file, set default values
 MSB_NODE_HOST ??= "microservicebus.com"
@@ -27,4 +27,4 @@ do_install() {
              install -m 0644 ${WORKDIR}/microservicebus-dam.service ${D}${systemd_system_unitdir}
 }
 
-REQUIRED_DISTRO_FEATURES= "systemd"
+REQUIRED_DISTRO_FEATURES = "systemd"
