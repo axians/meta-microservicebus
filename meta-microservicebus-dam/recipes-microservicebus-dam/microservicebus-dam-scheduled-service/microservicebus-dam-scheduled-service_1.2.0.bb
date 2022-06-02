@@ -1,4 +1,4 @@
-inherit systemd
+inherit systemd features_check
 
 SUMMARY = "Install and start DAM Scheduled Poller as a systemd service"
 LICENSE = "MIT"
