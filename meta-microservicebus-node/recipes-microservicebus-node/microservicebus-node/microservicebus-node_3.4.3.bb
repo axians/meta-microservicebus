@@ -16,7 +16,7 @@ NPM_LOCKDOWN := "${THISDIR}/${PN}/lockdown_${PV}.json"
 LICENSE = "ISC & BSD-3-Clause & Unlicense & Apache-2.0 & MIT \
 & BSD-2-Clause"
 LIC_FILES_CHKSUM = " \
-                    file://node_modules/mime-db/LICENSE;md5=c8d3a30332ecb31cfaf4c0a06da18f5c \
+                    file://node_modules/mime-db/LICENSE;md5=175b28b58359f8b4a969c9ab7c828445 \
                     file://node_modules/fs-minipass/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/yallist/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
                     file://node_modules/tar/LICENSE;md5=82703a69f6d7411dde679954c2fd9dca \
@@ -102,7 +102,7 @@ LIC_FILES_CHKSUM = " \
                     file://node_modules/ecc-jsbn/LICENSE;md5=0d289b6d63cbcc18e4b2af9a5bd28b54 \
                     file://node_modules/ecc-jsbn/lib/LICENSE-jsbn;md5=32052d48bacabd1c02e56c6889082a27 \
                     file://node_modules/safe-buffer/LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761 \
-                    file://node_modules/qs/LICENSE;md5=d5c7c6dc45a33a0a9620ed81315672d7 \
+                    file://node_modules/qs/LICENSE.md;md5=b289135779dd930509ae81e6041690c0 \
                     file://node_modules/delayed-stream/License;md5=5270b4ddb6700d0a820e6d066744589c \
                     file://node_modules/readable-stream/LICENSE;md5=a67a7926e54316d90c14f74f71080977 \
                     file://node_modules/http-signature/LICENSE;md5=38ecf0a3a3894f404ca99c2a08924afc \
