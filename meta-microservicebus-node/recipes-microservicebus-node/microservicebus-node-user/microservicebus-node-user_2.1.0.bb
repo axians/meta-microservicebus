@@ -21,10 +21,10 @@ MSB_USER_GROUPS ?= "tty,dialout"
 MSB_USER_UID ?= "350"
 
 MSB_ENABLE_SU ?= "FALSE"
-MSB_SU_NAME ?= "superuser"
+MSB_SU_NAME ?= "msbsu"
 #MSB_SU_PASSWORD ?= Set password from local.conf using extrauser, problem with useradd and not DES as hash. 
 
-# Conditional dependencies on microservicebus-dam
+# Conditional dependencies
 MSB_DEP ?= ""
 
 S = "${WORKDIR}"
