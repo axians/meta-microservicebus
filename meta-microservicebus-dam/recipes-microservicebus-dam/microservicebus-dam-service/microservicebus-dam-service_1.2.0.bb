@@ -1,4 +1,4 @@
-inherit systemd
+inherit systemd features_check
 
 SUMMARY = "Install and start DAM as systemd service"
 LICENSE = "MIT"
