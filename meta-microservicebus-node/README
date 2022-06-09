@@ -88,10 +88,6 @@ meta-microservicebus-node is supplied with some package groups located in
 
     Adds all recomended packages to get microservicebus up and running.
 
-  - packagegroup-microservicebus-extra
-
-    Adds nice to have packages.
-
   - packagegroup-microservicebus-build
 
     Adds all packages related to build npm packages using gyp on target,
