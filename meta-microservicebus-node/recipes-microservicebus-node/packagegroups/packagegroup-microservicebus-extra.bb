@@ -9,6 +9,4 @@ PACKAGES = "\
     "
 
 # Extra applications to add features useful to microServiceBus
-RDEPENDS:packagegroup-microservicebus-extra = "\
-    nodejs-serialport \
-    "
+RDEPENDS:packagegroup-microservicebus-extra = ""
