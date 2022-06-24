@@ -4,6 +4,11 @@ For information regarding the microservicebus-node agent visit https://microserv
 
 Please see the corresponding sections below for details.
 
+> ⚠ Since the Kirkstone version of Yocto, meta-oe provides only NodeJs v16.  
+> There are some **build issue with NodeJs v16** (and npm v8) that are not easy to patch and maintain  
+> This layer **imports a repice for NodeJs v14** that is **used by default**.  
+> Please refer to the section VI. bellow for more informations.
+
 Dependencies
 ============
 
@@ -27,6 +32,7 @@ Table of Contents
 III. Add systemd service configuration for microservicebus-node
  IV. Using package groups
   V. Configuration variables to adapt installations to target
+ VI. NodeJs v16 issue
 
 I. Adding the meta-microservicebus-node layer to your build
 ===========================================================
@@ -103,3 +109,41 @@ recipe. The default settings should be good to get you up and running.
     MSB_NODE_USER ?= "root"           # Name of user for microServicebus
     MSB_NODE_GROUP ?= "root"          # Name of user group for microServicebus
     MSB_NODE_HOST ?= "microservicebus.com"  # If using private hosting and custom domain this need to change
+
+VI. NodeJs v16 issue
+====================
+
+Since the Kirkstone version of Yocto, meta-oe provides only NodeJs v16.  
+There are some build issue with NodeJs v16 (and npm v8) that are not easy to patch and maintain *(see [this thread for more details](https://stackoverflow.com/a/72703843/10358602)).*
+
+## Recommended: Use NodeJs v14 for the build and image
+
+To avoid having to maintain npm patches, this layer provides a NodeJS v14 recipe until these issues are fixed.
+
+This recipe for **NodeJs v14 will be automatically used over the v16** one from meta-oe for 2 reasons:
+
+- We defined a prefered version for nodejs in this layer's _layer.conf_ file
+- This layer has a higer priority (16) than meta-oe (5)
+
+You shouldn't have to change anything in order to keep using NodeJs v14.
+
+> ℹ If you still want to use NodeJs v16, see the following two sections.  
+> In these cases, ensure that your preferred npm version for **microservicebus-core** defined in the settings of your organization is **at least 3.9.91 to support NodeJs v16**  
+> If this config isn't enough for v3.9.91+ to be installed, and you don't mind trying the beta version, try to start microSerivceBus with the `--beta` flag
+
+## Use NodeJs v16 for the build and image
+
+If you would like to use NodeJs v16 in your image and for the build, you can simply add the following to your local.conf file:
+
+```
+PREFERRED_VERSION_nodejs = "16%"
+PREFERRED_VERSION_nodejs-native = "16%"
+```
+
+## Use NodeJs v14 for the build and NodeJs v14 in the image
+
+If you rather want to use NodeJs v16 on your image but not for the build due to this issue, define the following in your local.conf file:
+
+```
+PREFERRED_VERSION_nodejs = "16%"
+```
