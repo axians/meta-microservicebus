@@ -140,7 +140,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cc883f74a12beac0fd9a1809032541d0 \
 
 SRC_URI = " \
     npm://registry.npmjs.org/;package=microservicebus-node;version=${PV} \
-    npmsw://${THISDIR}/${BPN}/npm-shrinkwrap.json \
+    npmsw://${THISDIR}/${BPN}/npm-shrinkwrap_3.4.5.json \
     "
 
 S = "${WORKDIR}/npm"
