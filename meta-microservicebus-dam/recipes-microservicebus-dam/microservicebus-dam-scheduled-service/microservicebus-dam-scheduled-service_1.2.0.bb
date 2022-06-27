@@ -1,4 +1,4 @@
-inherit systemd
+inherit systemd features_check
 
 SUMMARY = "Install and start DAM Scheduled Poller as a systemd service"
 LICENSE = "MIT"
@@ -10,9 +10,9 @@ S = "${WORKDIR}"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE_${PN} = " microservicebus-dam-scheduled.service"
+SYSTEMD_SERVICE:${PN} = " microservicebus-dam-scheduled.service"
 
-FILES_${PN} += "${systemd_system_unitdir}/microservicebus-dam-scheduled.service"
+FILES:${PN} += "${systemd_system_unitdir}/microservicebus-dam-scheduled.service"
 
 #Dynamic parameters for service file, set default values
 MSB_NODE_HOST ??= "microservicebus.com"

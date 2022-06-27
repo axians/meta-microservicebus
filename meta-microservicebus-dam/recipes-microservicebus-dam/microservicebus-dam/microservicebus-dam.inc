@@ -3,23 +3,25 @@ SUMMARY = "Device Access Management service for microServiceBus.com. Please visi
 HOMEPAGE = "https://microservicebus.com"
 
 # Workaround to fix qa errors in test code
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"
 
-RDEPENDS_${PN} += " sudo bash"
+RDEPENDS:${PN} += " sudo bash"
 
 # Add msbdam user group
 inherit useradd
 
 USERADD_PACKAGES = "${PN}"
 
-GROUPADD_PARAM_${PN} = "-g 800 msbdam"
+GROUPADD_PARAM:${PN} = "-g 800 msbdam"
 
 # create /var/lib/dam
 # set ownership + sticky-bit
-do_install_append () {
+do_install:append () {
     install -d -o root -g msbdam ${D}/run/dam
     rm -Rf ${D}/usr/lib/node/microservicebus-dam/{.eslintrc.js,logo.png,microservicebus-dam-*.tgz,snap}
 }
 
-FILES_${PN} += "/run/dam"
+FILES:${PN} += "/run/dam"
 
+# Removing /run from the empty dir list (https://git.yoctoproject.org/poky/plain/meta/classes/insane.bbclass)
+QA_EMPTY_DIRS:remove = "/run"

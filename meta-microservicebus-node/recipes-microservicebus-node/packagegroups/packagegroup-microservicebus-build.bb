@@ -8,7 +8,7 @@ PACKAGES = "\
     packagegroup-microservicebus-build \
     "
 # Packages to enable running node-gyp for compiling native addon modules for Node.js
-RDEPENDS_packagegroup-microservicebus-build = "\
+RDEPENDS:packagegroup-microservicebus-build = "\
     make \
     cpp \
     cpp-symlinks \
