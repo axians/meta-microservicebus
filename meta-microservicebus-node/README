@@ -25,10 +25,8 @@ Table of Contents
   I. Adding the meta-microservicebus-node layer to your build
  II. Add microservicebus-node to your target
 III. Add systemd service configuration for microservicebus-node
- IV. Add nodejs serialport support
-  V. Add nodejs dbus support
- VI. Using package groups
-VII. Configuration variables to adapt installations to target
+ IV. Using package groups
+  V. Configuration variables to adapt installations to target
 
 I. Adding the meta-microservicebus-node layer to your build
 ===========================================================
@@ -67,30 +65,7 @@ package to your local.conf or image recipe file:
 
   IMAGE_INSTALL_append = " microservicebus-node-service"
 
-IV. Add nodejs serialport support
-=================================
-
-On some constrained device where the support for building npm packages on the target is not supported
-the alternative is to let bitbake build it, serialport is often used by microservicebus-node
-services and is therefore supplied in the layer for convenience. It will be installed as an
-global npm package in /usr/lib/node/.
-To add serialport to your target add the "nodejs-serialport" package to your local.conf 
-or image recipe file:
-
-  IMAGE_INSTALL_append = " nodejs-serialport"
-
-V. Add nodejs dbus support
-==========================
-
-On some constrained device where the support for building npm packages on the target is not supported
-the alternative is to let bitbake build it, dbus is used by microservicebus-core to supply an dbus API.
-It will be installed as a global npm package in /usr/lib/node/.
-To add nodejs-dbus to your target add the "nodejs-dbus" package to your local.conf 
-or image recipe file:
-
-  IMAGE_INSTALL_append = " nodejs-dbus"
-
-VI. Using package groups
+IV. Using package groups
 ========================
 
 To simplify installation of microservicebus related packages on target
@@ -101,16 +76,12 @@ meta-microservicebus-node is supplied with some package groups located in
 
     Adds all recomended packages to get microservicebus up and running.
 
-  - packagegroup-microservicebus-extra
-
-    Adds nice to have packages like nodejs-serialport.
-
   - packagegroup-microservicebus-build
 
     Adds all packages related to build npm packages using gyp on target,
     this includes make, gcc, binutils.
 
-VII. Configuration variables to adapt installations to target
+V. Configuration variables to adapt installations to target
 ==============================================================
 
 In most of the recipes supplied in meta-microservicebus weak assignments to variables is
