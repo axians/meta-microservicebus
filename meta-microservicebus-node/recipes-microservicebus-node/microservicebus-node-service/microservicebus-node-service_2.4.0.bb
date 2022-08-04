@@ -1,4 +1,5 @@
 inherit systemd
+inherit features_check
 
 SUMMARY = "Install microservicebus as systemd service and add dbus conf file"
 LICENSE = "MIT"
