@@ -29,6 +29,7 @@ MSB_DEP ?= ""
 
 S = "${WORKDIR}"
 DEPENDS += "openssl-native"
+RDEPENDS_${PN} += " sudo"
 EXCLUDE_FROM_WORLD = "1"
 
 inherit useradd
