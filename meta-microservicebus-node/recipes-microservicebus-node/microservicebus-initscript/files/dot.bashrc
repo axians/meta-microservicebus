@@ -8,6 +8,8 @@ alias node-start='sudo systemctl start microservicebus-node'
 alias node-stop='sudo systemctl stop microservicebus-node'
 alias node-restart='sudo systemctl restart microservicebus-node'
 
+alias ll="ls -laFh --color=auto"
+
 printf '\e[0;32m'
 printf "           _               ____                  _          ____             \n"
 printf " _ __ ___ (_) ___ _ __ ___/ ___|  ___ _ ____   _(_) ___ ___| __ ) _   _ ___  \n"

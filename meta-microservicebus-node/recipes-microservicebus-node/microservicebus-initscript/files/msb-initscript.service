@@ -6,7 +6,7 @@ Before=rauc.service
 Before=network-pre.target
 
 [Service]
-Type=notify
+Type=oneshot
 ExecStart=/usr/bin/msb-initscript.sh
 Restart=on-failure
 RestartSec=5s

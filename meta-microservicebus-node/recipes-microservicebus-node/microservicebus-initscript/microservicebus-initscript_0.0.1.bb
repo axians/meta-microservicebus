@@ -1,7 +1,7 @@
 inherit systemd
 inherit features_check
 
-SUMMARY = "Install init script for Intel NUC gateway"
+SUMMARY = "Init scripts and common modifications for mSB"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
@@ -17,7 +17,10 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = " msb-initscript.service"
 
 FILES_${PN} += "${systemd_system_unitdir}/msb-initscript.service \
-                ${bindir}/msb-initscript.sh"
+                ${bindir}/msb-initscript.sh \
+                ${sysconfdir}/skel/.bashrc \
+                ${ROOT_HOME}/.bashrc \
+                "
 
 # Dynamic parameters
 MSB_HOME_DIR_PATH ??= "/data/home/msb"
@@ -43,7 +46,8 @@ do_install() {
 
     # Install bashrc file
     sed -i -e 's:@RAUC_BUNDLE_VERSION@:${RAUC_BUNDLE_VERSION}:g' ${WORKDIR}/dot.bashrc
-    install -d ${D}${sysconfdir}/profile.d/
+    install -d ${D}${sysconfdir}/skel/
+    install -d ${D}${ROOT_HOME}/
     install -m 0755 ${WORKDIR}/dot.bashrc ${D}${sysconfdir}/skel/.bashrc
     install -m 0755 ${WORKDIR}/dot.bashrc ${D}${ROOT_HOME}/.bashrc
 }
