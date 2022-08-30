@@ -16,5 +16,6 @@ RDEPENDS:packagegroup-microservicebus-base = "\
     microservicebus-node-user \
     microservicebus-node \
     microservicebus-node-service \
+    microservicebus-node-initscript \
     "
 
