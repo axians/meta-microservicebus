@@ -5,8 +5,8 @@ SUMMARY = "Init scripts and common modifications for mSB"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI += "file://microservicebus-node-initscript.service \
-            file://microservicebus-node-initscript.sh \
+SRC_URI += "file://microservicebus-node-init.service \
+            file://microservicebus-node-init.sh \
             file://dot.bashrc \
             "
 
@@ -14,10 +14,10 @@ S = "${WORKDIR}"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE:${PN} = " microservicebus-node-initscript.service"
+SYSTEMD_SERVICE:${PN} = " microservicebus-node-init.service"
 
-FILES:${PN} += "${systemd_system_unitdir}/microservicebus-node-initscript.service \
-                ${bindir}/microservicebus-node-initscript.sh \
+FILES:${PN} += "${systemd_system_unitdir}/microservicebus-node-init.service \
+                ${bindir}/microservicebus-node-init.sh \
                 ${sysconfdir}/skel/.bashrc \
                 ${ROOT_HOME}/.bashrc \
                 "
@@ -31,18 +31,18 @@ IOTEDGE ??= "FALSE"
 do_install() {
              
     # Replace parameters in script
-    sed -i -e 's:@MSB_NODE_USER@:${MSB_NODE_USER}:g' ${WORKDIR}/microservicebus-node-initscript.sh
-    sed -i -e 's:@MSB_NODE_GROUP@:${MSB_NODE_GROUP}:g' ${WORKDIR}/microservicebus-node-initscript.sh
-    sed -i -e 's:@MSB_HOME_DIR_PATH@:${MSB_HOME_DIR_PATH}:g' ${WORKDIR}/microservicebus-node-initscript.sh
-    sed -i -e 's:@IOTEDGE@:${IOTEDGE}:g' ${WORKDIR}/microservicebus-node-initscript.sh
+    sed -i -e 's:@MSB_NODE_USER@:${MSB_NODE_USER}:g' ${WORKDIR}/microservicebus-node-init.sh
+    sed -i -e 's:@MSB_NODE_GROUP@:${MSB_NODE_GROUP}:g' ${WORKDIR}/microservicebus-node-init.sh
+    sed -i -e 's:@MSB_HOME_DIR_PATH@:${MSB_HOME_DIR_PATH}:g' ${WORKDIR}/microservicebus-node-init.sh
+    sed -i -e 's:@IOTEDGE@:${IOTEDGE}:g' ${WORKDIR}/microservicebus-node-init.sh
 
     # Install service file
     install -d ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/microservicebus-node-initscript.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/microservicebus-node-init.service ${D}${systemd_system_unitdir}
 
     # Install script
     install -d ${D}${bindir}
-    install -m 0550 ${WORKDIR}/microservicebus-node-initscript.sh ${D}${bindir}/
+    install -m 0550 ${WORKDIR}/microservicebus-node-init.sh ${D}${bindir}/
 
     # Install bashrc file
     sed -i -e 's:@RAUC_BUNDLE_VERSION@:${RAUC_BUNDLE_VERSION}:g' ${WORKDIR}/dot.bashrc
