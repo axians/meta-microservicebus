@@ -8,7 +8,7 @@ PACKAGES = "\
     packagegroup-microservicebus-base \
     "
 
-# Normal minimun packages to install to ron microServicebus on Yocto
+# Normal minimun packages to install to run microServicebus on Yocto
 RDEPENDS:packagegroup-microservicebus-base = "\
     nodejs \
     nodejs-npm \
