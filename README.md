@@ -8,8 +8,6 @@
 The *Meta level* is made up of core recipes for the microservicebus-node agent to work. These recipes are:
 ### meta-microservicebus-node
 IoT Device Management for: Microsoft Azure, Amazon AWS and IBM Watson. microServiceBus-node is the node.js based device agent used together with microServiceBus.com
-### meta-microservicebus-dam
-microServiceBus Device Access Management is responsible for managing remote users and access to devices
 ### meta-microservicebus-user
 Recipe handling service users and privilages
 <hr/>
