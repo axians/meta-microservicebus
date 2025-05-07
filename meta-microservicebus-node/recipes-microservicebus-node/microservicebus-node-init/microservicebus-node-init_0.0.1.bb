@@ -16,20 +16,20 @@ SYSTEMD_PACKAGES = "${PN}"
 
 SYSTEMD_SERVICE:${PN} = " microservicebus-node-init.service"
 
-FILES:${PN} += "${systemd_system_unitdir}/microservicebus-node-init.service \
-                ${bindir}/microservicebus-node-init.sh \
-                ${sysconfdir}/skel/.bashrc \
-                ${ROOT_HOME}/.bashrc \
-                "
-
 # Dynamic parameters
 MSB_HOME_DIR_PATH ??= "/data/home/msb"
 MSB_NODE_USER ??= "msb"
 MSB_NODE_GROUP ??= "msb"
 IOTEDGE ??= "FALSE"
 
+FILES:${PN} += "${systemd_system_unitdir}/microservicebus-node-init.service \
+                ${bindir}/microservicebus-node-init.sh \
+                ${sysconfdir}/skel/.bashrc \
+                "
+
+
 do_install() {
-             
+
     # Replace parameters in script
     sed -i -e 's:@MSB_NODE_USER@:${MSB_NODE_USER}:g' ${WORKDIR}/microservicebus-node-init.sh
     sed -i -e 's:@MSB_NODE_GROUP@:${MSB_NODE_GROUP}:g' ${WORKDIR}/microservicebus-node-init.sh
@@ -46,10 +46,12 @@ do_install() {
 
     # Install bashrc file
     sed -i -e 's:@RAUC_BUNDLE_VERSION@:${RAUC_BUNDLE_VERSION}:g' ${WORKDIR}/dot.bashrc
+    install -d ${D}${sysconfdir}
     install -d ${D}${sysconfdir}/skel/
-    install -d ${D}${ROOT_HOME}/
-    install -m 0755 ${WORKDIR}/dot.bashrc ${D}${sysconfdir}/skel/.bashrc
-    install -m 0755 ${WORKDIR}/dot.bashrc ${D}${ROOT_HOME}/.bashrc
+    #install -d ${D}${ROOT_HOME}/
+    install -m 0755 ${WORKDIR}/dot.bashrc ${D}${sysconfdir}/skel/
+    #install -m 0755 ${WORKDIR}/dot.bashrc ${D}${ROOT_HOME}/
+    
 }
 
 REQUIRED_DISTRO_FEATURES = "systemd"
