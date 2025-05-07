@@ -2,7 +2,7 @@
 Description=MicroServiceBus as a Service
 
 [Service]
-ExecStart=/usr/bin/node /usr/lib/node/microservicebus-node/start.js @MSB_NODE_ARG@
+ExecStart=/usr/bin/node /usr/lib/node_modules/microservicebus-node/start.js @MSB_NODE_ARG@
 WorkingDirectory=@MSB_NODE_WORK_DIR@
 Restart=always
 SyslogIdentifier=nodejs
