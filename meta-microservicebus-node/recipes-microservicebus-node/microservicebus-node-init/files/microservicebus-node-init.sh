@@ -27,7 +27,7 @@ if [ -d ${MSB_HOME_DIR_PATH} ]; then
    echo "HOME dir ready" 
    systemd-notify --ready
    # Copy .bashrc file to home 
-  cp /etc/skel/.bashrc ${MSB_HOME_DIR_PATH}/ 2>&1 > /dev/null
+  cp /etc/skel/.bashrc ${MSB_HOME_DIR_PATH}/.bashrc 2>&1 > /dev/null
 else
    # Create home dir/path if missing and set permissions
    echo "HOME dir does not exists, creating..." 
@@ -90,6 +90,11 @@ sudo iptables -A SSHATTACK -j LOG --log-prefix "Possible SSH attack! " --log-lev
 sudo iptables -A SSHATTACK -j DROP;
 sudo iptables -A INPUT -i eth0 -p tcp -m state --dport 22 --state NEW -m recent --set;
 sudo iptables -A INPUT -i eth0 -p tcp -m state --dport 22 --state NEW -m recent --update --seconds 120 --hitcount 4 -j SSHATTACK;
+
+# Remove and add .bashrc
+echo  "Replace .bashrc for msb user"
+rm /home/msb/.bashrc
+cp ./etc/skel/dot.bashrc /data/home/msb/.bashrc
 
 exit $RESULT
 

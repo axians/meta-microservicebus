@@ -46,6 +46,7 @@ do_install() {
 
     # Install bashrc file
     sed -i -e 's:@RAUC_BUNDLE_VERSION@:${RAUC_BUNDLE_VERSION}:g' ${WORKDIR}/dot.bashrc
+    
     install -d ${D}${sysconfdir}
     install -d ${D}${sysconfdir}/skel/
     #install -d ${D}${ROOT_HOME}/
